@@ -1,0 +1,1476 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Priyadarshini Veg Restaurant — NH 44</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;0,800;1,500&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --cream:#FAF6EE;
+    --cream-deep:#F1E9D6;
+    --ink:#1C1A17;
+    --ink-soft:#4A453D;
+    --crimson:#A93226;
+    --gold:#D4AC0D;
+    --gold-deep:#AD8A0B;
+    --green:#14532D;
+    --line:rgba(28,26,23,0.14);
+    --line-gold:rgba(212,172,13,0.55);
+    --white:#FFFFFF;
+    --shadow:0 18px 40px -18px rgba(28,26,23,0.28);
+    --radius-sharp:2px;
+    --serif:'Playfair Display', serif;
+    --sans:'Plus Jakarta Sans', sans-serif;
+  }
+
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    background:var(--cream);
+    color:var(--ink);
+    font-family:var(--sans);
+    -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+  }
+  img{max-width:100%; display:block;}
+  button{font-family:inherit; cursor:pointer;}
+  a{color:inherit; text-decoration:none;}
+  .eyebrow{
+    font-family:var(--sans);
+    font-size:11px;
+    letter-spacing:.22em;
+    text-transform:uppercase;
+    font-weight:700;
+    color:var(--crimson);
+  }
+  .container{
+    max-width:1240px;
+    margin:0 auto;
+    padding:0 32px;
+  }
+  ::selection{background:var(--gold); color:var(--ink);}
+
+  /* ============ ORNAMENT ============ */
+  .diamond{
+    width:7px; height:7px;
+    background:var(--gold);
+    transform:rotate(45deg);
+    display:inline-block;
+  }
+  .rule{
+    height:1px;
+    background:linear-gradient(90deg, transparent, var(--line-gold) 20%, var(--line-gold) 80%, transparent);
+  }
+
+  /* ============ NAVBAR ============ */
+  header.nav{
+    position:sticky; top:0; z-index:500;
+    background:rgba(250,246,238,0.92);
+    backdrop-filter:blur(10px);
+    border-bottom:1px solid var(--line);
+  }
+  .nav-inner{
+    display:flex; align-items:center; justify-content:space-between;
+    padding:16px 32px;
+    max-width:1240px; margin:0 auto;
+  }
+  .brand-cluster{display:flex; align-items:center; gap:16px;}
+  .route-badge{
+    border:1.5px solid var(--gold);
+    padding:6px 11px;
+    font-family:var(--sans);
+    font-weight:800;
+    font-size:12px;
+    letter-spacing:.08em;
+    color:var(--gold-deep);
+    position:relative;
+    line-height:1;
+    white-space:nowrap;
+  }
+  .route-badge::before,.route-badge::after{
+    content:"";
+    position:absolute;
+    width:5px; height:5px;
+    border:1.5px solid var(--gold);
+  }
+  .route-badge::before{top:-3px; left:-3px; border-right:none; border-bottom:none;}
+  .route-badge::after{bottom:-3px; right:-3px; border-left:none; border-top:none;}
+  .brand-name{
+    font-family:var(--serif);
+    font-weight:700;
+    font-size:22px;
+    letter-spacing:.01em;
+    line-height:1;
+  }
+  .brand-name span{color:var(--crimson); font-style:italic; font-weight:600; font-size:13px; display:block; margin-top:3px; letter-spacing:.14em; text-transform:uppercase; font-family:var(--sans);}
+
+  .btn-ghost-nav{
+    display:none;
+  }
+  .btn-menu-cta{
+    border:1.5px solid var(--ink);
+    background:transparent;
+    color:var(--ink);
+    padding:12px 24px;
+    font-size:12.5px;
+    font-weight:700;
+    letter-spacing:.1em;
+    text-transform:uppercase;
+    position:relative;
+    transition:.25s;
+  }
+  .btn-menu-cta:hover{background:var(--ink); color:var(--cream);}
+  .btn-call-nav{
+    display:flex; align-items:center; gap:7px;
+    border:1.5px solid var(--crimson);
+    color:var(--crimson);
+    background:transparent;
+    padding:11px 18px;
+    font-size:12.5px; font-weight:700; letter-spacing:.06em;
+    transition:.25s;
+  }
+  .btn-call-nav:hover{background:var(--crimson); color:var(--white);}
+  .btn-call-nav svg{flex-shrink:0;}
+  @media (max-width:640px){ .btn-call-nav span{display:none;} .btn-call-nav{padding:11px;} }
+
+  /* ============ HERO ============ */
+  .hero{
+    position:relative;
+    padding:96px 32px 88px;
+    text-align:center;
+    background:
+      radial-gradient(circle at 15% 20%, rgba(212,172,13,0.10), transparent 40%),
+      radial-gradient(circle at 85% 80%, rgba(169,50,38,0.07), transparent 40%);
+    border-bottom:1px solid var(--line);
+  }
+  .heritage-badge{
+    display:inline-flex; align-items:center; gap:10px;
+    border:1px solid var(--line-gold);
+    padding:9px 20px;
+    font-size:11.5px; font-weight:700; letter-spacing:.2em; text-transform:uppercase;
+    color:var(--ink-soft);
+    margin-bottom:32px;
+  }
+  .heritage-badge b{color:var(--crimson);}
+  .heritage-badge .arrow{color:var(--gold-deep); font-size:13px;}
+
+  .hero h1{
+    font-family:var(--serif);
+    font-weight:800;
+    font-size:clamp(38px, 6.4vw, 74px);
+    line-height:1.06;
+    letter-spacing:-.01em;
+    max-width:900px;
+    margin:0 auto 26px;
+  }
+  .hero h1 em{
+    font-style:italic;
+    color:var(--crimson);
+    font-weight:600;
+  }
+  .hero-tagline{
+    font-size:16.5px;
+    color:var(--ink-soft);
+    max-width:560px;
+    margin:0 auto 46px;
+    line-height:1.7;
+    font-weight:500;
+  }
+
+  .info-pills{
+    display:flex; flex-wrap:wrap; gap:14px; justify-content:center;
+    margin-bottom:56px;
+  }
+  .pill{
+    display:flex; align-items:center; gap:9px;
+    border:1px solid var(--gold);
+    padding:11px 20px;
+    font-size:12.5px; font-weight:600;
+    background:var(--white);
+    color:var(--ink);
+  }
+  .pill .dot{width:6px; height:6px; border-radius:50%; background:var(--gold-deep);}
+
+  .hero-cta{
+    display:inline-flex; flex-direction:column; align-items:center; gap:14px;
+  }
+  .hero-actions{
+    display:flex; gap:12px; justify-content:center; margin-top:40px; flex-wrap:wrap;
+  }
+  .hero-action-btn{
+    display:inline-flex; align-items:center; gap:8px;
+    border:1.5px solid var(--ink);
+    color:var(--ink);
+    padding:13px 26px;
+    font-size:12.5px; font-weight:700; letter-spacing:.08em; text-transform:uppercase;
+    transition:.25s;
+  }
+  .hero-action-btn:hover{background:var(--crimson); border-color:var(--crimson); color:var(--white);}
+  .down-arrow-btn{
+    width:52px; height:52px;
+    border:1.5px solid var(--ink);
+    border-radius:50%;
+    display:flex; align-items:center; justify-content:center;
+    background:var(--cream);
+    transition:.3s;
+    animation:bob 2.6s ease-in-out infinite;
+  }
+  .down-arrow-btn:hover{background:var(--gold); border-color:var(--gold);}
+  @keyframes bob{0%,100%{transform:translateY(0);}50%{transform:translateY(6px);}}
+  .hero-cta small{font-size:11px; letter-spacing:.18em; text-transform:uppercase; color:var(--ink-soft); font-weight:700;}
+
+  /* ============ FEATURE ROW ============ */
+  .features{
+    padding:64px 0 68px;
+    border-bottom:1px solid var(--line);
+  }
+  .section-head{
+    display:flex; align-items:flex-end; justify-content:space-between;
+    margin-bottom:36px; gap:20px; flex-wrap:wrap;
+  }
+  .section-head h2{
+    font-family:var(--serif);
+    font-size:clamp(26px,3.4vw,38px);
+    font-weight:700;
+  }
+  .section-head p{color:var(--ink-soft); max-width:380px; font-size:14.5px; line-height:1.6;}
+
+  .feature-track{
+    display:flex; gap:18px;
+    overflow-x:auto;
+    padding:6px 32px 18px;
+    scroll-snap-type:x proximity;
+  }
+  .feature-track::-webkit-scrollbar{height:5px;}
+  .feature-track::-webkit-scrollbar-thumb{background:var(--gold); }
+  .feature-track::-webkit-scrollbar-track{background:var(--line);}
+
+  .feature-card{
+    flex:0 0 236px;
+    scroll-snap-align:start;
+    background:var(--white);
+    border:1px solid var(--line);
+    border-top:3px solid var(--gold);
+    padding:28px 22px;
+    transition:.3s;
+  }
+  .feature-card:hover{border-color:var(--ink); transform:translateY(-4px); box-shadow:var(--shadow);}
+  .feature-card svg{width:30px; height:30px; margin-bottom:20px; stroke:var(--ink);}
+  .feature-card h3{font-family:var(--serif); font-size:18px; font-weight:700; margin-bottom:10px;}
+  .feature-card p{font-size:13px; color:var(--ink-soft); line-height:1.6;}
+
+  /* ============ MENU ============ */
+  .menu-section{
+    padding:76px 0 90px;
+    background:var(--cream-deep);
+    border-bottom:1px solid var(--line);
+  }
+  .menu-tabs{
+    display:flex; gap:34px; overflow-x:auto;
+    border-bottom:1px solid var(--line);
+    margin-bottom:44px;
+    padding:0 32px 0;
+  }
+  .menu-tab{
+    background:none; border:none; white-space:nowrap;
+    padding:14px 2px 18px;
+    font-size:13.5px; font-weight:700; letter-spacing:.06em; text-transform:uppercase;
+    color:var(--ink-soft);
+    position:relative;
+  }
+  .menu-tab::after{
+    content:""; position:absolute; left:0; right:0; bottom:-1px; height:2px;
+    background:var(--crimson); transform:scaleX(0); transform-origin:left; transition:.28s;
+  }
+  .menu-tab.active{color:var(--ink);}
+  .menu-tab.active::after{transform:scaleX(1);}
+
+  .menu-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fill,minmax(260px,1fr));
+    gap:26px;
+  }
+  .dish-card{
+    background:var(--white);
+    border:1px solid var(--line);
+    position:relative;
+    transition:.3s;
+    display:flex; flex-direction:column;
+  }
+  .dish-card:hover{box-shadow:var(--shadow); border-color:var(--gold); transform:translateY(-3px);}
+  .dish-photo{
+    aspect-ratio:4/3;
+    position:relative;
+    overflow:hidden;
+    cursor:zoom-in;
+    display:flex; align-items:center; justify-content:center;
+    border-bottom:1px solid var(--line);
+  }
+  .dish-photo svg{width:44px; height:44px; opacity:.55;}
+  .ribbon{
+    position:absolute; top:14px; left:-6px;
+    background:var(--crimson); color:var(--white);
+    font-size:10px; font-weight:800; letter-spacing:.12em; text-transform:uppercase;
+    padding:5px 14px 5px 18px;
+  }
+  .ribbon::after{
+    content:""; position:absolute; left:0; bottom:-6px;
+    border-left:6px solid transparent; border-top:6px solid #6e1e15;
+  }
+  .veg-dot{
+    position:absolute; top:14px; right:14px;
+    width:20px; height:20px;
+    border:1.6px solid var(--green);
+    background:var(--white);
+    display:flex; align-items:center; justify-content:center;
+  }
+  .veg-dot i{width:9px; height:9px; border-radius:50%; background:var(--green); display:block;}
+  .dish-body{padding:18px 20px 20px; display:flex; flex-direction:column; gap:8px; flex:1;}
+  .dish-name{font-family:var(--serif); font-weight:700; font-size:17px; line-height:1.3;}
+  .dish-desc{font-size:12.5px; color:var(--ink-soft); line-height:1.55; flex:1;}
+  .dish-footer{display:flex; align-items:center; justify-content:space-between; margin-top:4px; padding-top:12px; border-top:1px dashed var(--line);}
+  .dish-price{font-family:var(--serif); font-weight:700; font-size:17px; color:var(--crimson);}
+  .dish-tag{font-size:10.5px; text-transform:uppercase; letter-spacing:.1em; color:var(--ink-soft); font-weight:700;}
+
+  /* ============ LIGHTBOX ============ */
+  .lightbox{
+    position:fixed; inset:0; z-index:900;
+    background:rgba(20,18,15,0.88);
+    display:none; align-items:center; justify-content:center;
+    padding:24px;
+  }
+  .lightbox.open{display:flex;}
+  .lb-panel{
+    background:var(--cream);
+    max-width:820px; width:100%;
+    max-height:90vh; overflow:auto;
+    border:1px solid var(--line-gold);
+    position:relative;
+  }
+  .lb-close{
+    position:absolute; top:16px; right:16px;
+    width:36px; height:36px;
+    border:1.5px solid var(--ink); background:var(--cream);
+    display:flex; align-items:center; justify-content:center;
+    font-size:16px; z-index:5;
+  }
+  .lb-media{
+    aspect-ratio:16/9;
+    position:relative;
+    display:flex; align-items:center; justify-content:center;
+    border-bottom:1px solid var(--line);
+    overflow: hidden;
+  }
+  .lb-media svg{width:70px; height:70px; opacity:.5;}
+  .lb-zoom-tools{
+    position:absolute; bottom:14px; right:14px;
+    display:flex; gap:8px;
+  }
+  .lb-zoom-tools button{
+    width:32px; height:32px; border:1px solid var(--ink); background:rgba(250,246,238,0.9);
+    font-size:14px; font-weight:700;
+  }
+  .lb-details{padding:30px 34px 34px;}
+  .lb-details h3{font-family:var(--serif); font-size:26px; margin-bottom:10px;}
+  .lb-meta{display:flex; gap:12px; margin-bottom:16px; flex-wrap:wrap;}
+  .lb-meta span{font-size:11px; text-transform:uppercase; letter-spacing:.1em; font-weight:700; border:1px solid var(--line); padding:5px 11px; color:var(--ink-soft);}
+  .lb-details p.desc{color:var(--ink-soft); line-height:1.75; font-size:14.5px; margin-bottom:20px;}
+  .lb-price-row{display:flex; align-items:center; justify-content:space-between; border-top:1px solid var(--line); padding-top:18px;}
+  .lb-price-row .price{font-family:var(--serif); font-weight:700; font-size:24px; color:var(--crimson);}
+  .lb-add-btn{background:var(--gold); border:none; padding:12px 26px; font-weight:800; font-size:12.5px; letter-spacing:.08em; text-transform:uppercase; color:var(--ink);}
+
+  /* ============ AMENITY DIRECTORY ============ */
+  .amenities{padding:80px 0; border-bottom:1px solid var(--line);}
+  .amenity-grid{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    border:1px solid var(--line);
+  }
+  .amenity-block{
+    padding:32px 28px;
+    border-right:1px solid var(--line);
+  }
+  .amenity-block:last-child{border-right:none;}
+  .amenity-block h4{
+    font-family:var(--serif); font-size:16.5px; font-weight:700; margin-bottom:16px;
+    display:flex; align-items:center; gap:9px;
+  }
+  .amenity-block h4::before{content:""; width:16px; height:2px; background:var(--gold-deep); display:inline-block;}
+  .amenity-block ul{list-style:none;}
+  .amenity-block li{
+    font-size:13px; color:var(--ink-soft); line-height:1.5;
+    padding-left:14px; position:relative; margin-bottom:11px;
+  }
+  .amenity-block li::before{content:"–"; position:absolute; left:0; color:var(--crimson); font-weight:700;}
+
+  /* ============ FOOTER ============ */
+  footer{background:var(--cream-deep); padding:64px 0 0;}
+  .footer-grid{
+    display:grid; grid-template-columns:1.3fr 1fr 1fr;
+    gap:40px;
+    padding-bottom:48px;
+    border-bottom:1px solid var(--line);
+  }
+  .footer-brand .brand-name{margin-bottom:14px;}
+  .footer-brand p{font-size:13px; color:var(--ink-soft); line-height:1.7; max-width:300px;}
+  footer h5{font-family:var(--sans); font-size:12px; letter-spacing:.14em; text-transform:uppercase; font-weight:800; margin-bottom:18px; color:var(--ink);}
+  footer .addr-line, footer .hours-line{font-size:13.5px; color:var(--ink-soft); line-height:1.9;}
+  footer .hours-line b{color:var(--ink); font-weight:700;}
+  .footer-bottom{
+    display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:14px;
+    padding:26px 32px 30px; max-width:1240px; margin:0 auto;
+  }
+  .footer-bottom p{font-size:12px; color:var(--ink-soft);}
+  .staff-portal-btn{
+    background:none; border:none;
+    font-size:12px; font-weight:700; letter-spacing:.08em; text-transform:uppercase;
+    color:var(--ink-soft);
+    border-bottom:1px solid transparent;
+    padding:4px 0;
+    transition:.2s;
+  }
+  .staff-portal-btn:hover{color:var(--crimson); border-color:var(--crimson);}
+
+  /* ============ ADMIN OVERLAY ============ */
+  .admin-overlay{
+    position:fixed; inset:0; z-index:1000;
+    background:var(--ink);
+    display:none;
+    overflow-y:auto;
+  }
+  .admin-overlay.open{display:block;}
+
+  .admin-login{
+    min-height:100vh;
+    display:flex; align-items:center; justify-content:center;
+    padding:24px;
+  }
+  .login-card{
+    width:100%; max-width:400px;
+    background:var(--cream);
+    border:1px solid var(--line-gold);
+    padding:44px 38px 38px;
+    position:relative;
+  }
+  .login-card::before,.login-card::after{
+    content:""; position:absolute; width:14px; height:14px;
+    border:1.5px solid var(--gold);
+  }
+  .login-card::before{top:10px; left:10px; border-right:none; border-bottom:none;}
+  .login-card::after{bottom:10px; right:10px; border-left:none; border-top:none;}
+  .login-card .eyebrow{display:block; text-align:center; margin-bottom:10px;}
+  .login-card h3{font-family:var(--serif); font-size:26px; text-align:center; margin-bottom:6px;}
+  .login-card .sub{text-align:center; font-size:12.5px; color:var(--ink-soft); margin-bottom:32px;}
+  .field{margin-bottom:18px;}
+  .field label{display:block; font-size:11px; text-transform:uppercase; letter-spacing:.1em; font-weight:700; color:var(--ink-soft); margin-bottom:7px;}
+  .field input, .field select, .field textarea{
+    width:100%; border:1px solid var(--line); background:var(--white);
+    padding:12px 14px; font-family:var(--sans); font-size:13.5px; color:var(--ink);
+  }
+  .field input:focus, .field select:focus, .field textarea:focus{outline:2px solid var(--gold); outline-offset:1px; border-color:var(--gold);}
+  .btn-solid-gold{
+    width:100%; background:var(--gold); border:none; padding:13px; font-weight:800;
+    font-size:12.5px; letter-spacing:.1em; text-transform:uppercase; color:var(--ink); margin-top:6px;
+  }
+  .login-error{color:var(--crimson); font-size:12px; text-align:center; margin-top:12px; min-height:16px; font-weight:600;}
+  .login-close{
+    position:absolute; top:20px; left:20px; color:var(--cream);
+    font-size:13px; font-weight:700; display:flex; align-items:center; gap:6px;
+  }
+
+  .admin-dash{display:none; min-height:100vh; background:var(--cream);}
+  .admin-dash.open{display:block;}
+  .admin-topbar{
+    display:flex; align-items:center; justify-content:space-between;
+    padding:20px 34px; border-bottom:1px solid var(--line); background:var(--white);
+    position:sticky; top:0; z-index:10;
+  }
+  .admin-topbar .brand-name{font-size:18px;}
+  .logout-btn{border:1px solid var(--ink); background:none; padding:9px 18px; font-size:11.5px; font-weight:700; letter-spacing:.08em; text-transform:uppercase;}
+  .admin-body{padding:38px 34px 80px; max-width:1180px; margin:0 auto;}
+  .admin-section-title{display:flex; align-items:center; justify-content:space-between; margin-bottom:22px;}
+  .admin-section-title h3{font-family:var(--serif); font-size:24px; font-weight:700;}
+  .admin-tag{font-size:11px; letter-spacing:.1em; text-transform:uppercase; color:var(--gold-deep); border:1px solid var(--gold); padding:5px 12px; font-weight:700;}
+
+  .accordion{border:1px solid var(--line); margin-bottom:44px;}
+  .acc-item{border-bottom:1px solid var(--line);}
+  .acc-item:last-child{border-bottom:none;}
+
+  /* ---- Category-grouped admin sections ---- */
+  .cat-section{border:1px solid var(--line); margin-bottom:14px; background:var(--white);}
+  .cat-header{display:flex; align-items:center; justify-content:space-between; padding:16px 20px; cursor:pointer; background:var(--cream-deep); user-select:none;}
+  .cat-header-left{display:flex; align-items:center; gap:12px;}
+  .cat-arrow{font-size:11px; color:var(--gold-deep); transition:transform .2s;}
+  .cat-header h4{font-family:var(--serif); font-size:16.5px; font-weight:700; color:var(--ink);}
+  .cat-save-btn{
+    display:flex; align-items:center; gap:7px;
+    background:var(--green); color:var(--white); border:none;
+    padding:10px 18px; font-size:11.5px; font-weight:700; letter-spacing:.06em; text-transform:uppercase;
+    transition:.2s;
+  }
+  .cat-save-btn:hover{background:#0d3a20;}
+  .cat-save-btn.saved{background:var(--gold-deep);}
+  .cat-body{display:none; padding:20px; background:var(--white);}
+  .cat-body.open{display:block;}
+  .item-row{display:flex; align-items:center; gap:16px; padding:14px 0; border-bottom:1px dashed var(--line);}
+  .item-row:last-child{border-bottom:none;}
+  .item-thumb{
+    position:relative; width:88px; height:88px; flex-shrink:0;
+    border:1.5px solid var(--line); background:var(--cream-deep);
+    overflow:hidden; aspect-ratio:1/1;
+  }
+  .item-thumb img{width:100%; height:100%; object-fit:cover; display:block;}
+  .item-thumb svg{width:100%; height:100%; padding:24px; opacity:.5;}
+  .item-thumb-upload{
+    position:absolute; bottom:5px; right:5px; width:28px; height:28px;
+    background:var(--green); border:none; border-radius:50%;
+    display:flex; align-items:center; justify-content:center; cursor:pointer;
+    box-shadow:0 2px 6px rgba(0,0,0,.3);
+  }
+  .item-name-input{
+    flex:1; border:1px solid var(--line); padding:12px 14px;
+    font-size:14px; font-family:var(--sans); background:var(--cream);
+  }
+  .item-price-input{
+    width:100px; border:1px solid var(--line); padding:12px 14px;
+    font-size:14px; text-align:center; background:var(--cream);
+  }
+  .item-delete-btn{
+    width:38px; height:38px; background:var(--crimson); color:var(--white);
+    border:none; font-weight:700; font-size:14px; flex-shrink:0;
+  }
+  @media (max-width:640px){
+    .item-name-input{min-width:0;}
+    .item-row{flex-wrap:wrap;}
+  }
+  .acc-head{
+    display:flex; align-items:center; justify-content:space-between;
+    padding:17px 22px; background:var(--white);
+  }
+  .acc-head-left{display:flex; align-items:center; gap:14px;}
+  .acc-head-left .veg-dot{position:static;}
+  .acc-head h4{font-family:var(--serif); font-size:15.5px; font-weight:700;}
+  .acc-head .cat-label{font-size:11px; color:var(--ink-soft); font-weight:600;}
+  .acc-toggle{background:none; border:1px solid var(--ink); width:26px; height:26px; font-size:15px; font-weight:700; display:flex; align-items:center; justify-content:center; flex-shrink:0;}
+  .acc-price{font-family:var(--serif); font-weight:700; color:var(--crimson); font-size:15px; margin-right:6px;}
+  .acc-panel{display:none; padding:24px 22px 28px; background:var(--cream-deep); border-top:1px solid var(--line);}
+  .acc-panel.open{display:block;}
+  .acc-grid{display:grid; grid-template-columns:1fr 1fr; gap:16px;}
+  .acc-actions{display:flex; gap:12px; margin-top:18px;}
+  .btn-mini{border:1px solid var(--ink); background:none; padding:10px 18px; font-size:11px; font-weight:700; letter-spacing:.06em; text-transform:uppercase;}
+  .btn-mini.crimson{border-color:var(--crimson); color:var(--crimson);}
+  .btn-mini.gold{background:var(--gold); border-color:var(--gold);}
+
+  .price-tiers{display:flex; gap:12px; flex-wrap:wrap;}
+  .price-tier-box{border:1px solid var(--line); background:var(--white); padding:10px 14px; display:flex; align-items:center; gap:10px; font-size:12.5px;}
+  .price-tier-box input{width:70px; border:none; border-bottom:1px solid var(--line); padding:4px 2px; font-size:13px;}
+
+  .upload-block{
+    border:1.5px dashed var(--line-gold); background:var(--white);
+    padding:26px; text-align:center; margin-top:6px;
+  }
+  .upload-block svg{width:26px; height:26px; margin-bottom:10px;}
+  .upload-block p{font-size:12px; color:var(--ink-soft);}
+  .upload-block b{color:var(--crimson);}
+
+  .add-item-block{border:1.5px solid var(--gold); background:var(--white); padding:30px;}
+  .add-item-block .field-row{display:grid; grid-template-columns:2fr 1fr 1fr; gap:16px;}
+
+  /* ============ RESPONSIVE ============ */
+  @media (max-width:960px){
+    .amenity-grid{grid-template-columns:repeat(2,1fr);}
+    .amenity-block{border-bottom:1px solid var(--line);}
+    .amenity-block:nth-child(2n){border-right:none;}
+    .footer-grid{grid-template-columns:1fr 1fr;}
+    .footer-brand{grid-column:1/-1;}
+  }
+  @media (max-width:680px){
+    .nav-inner{padding:14px 18px;}
+    .brand-name{font-size:17px;}
+    .route-badge{font-size:10.5px; padding:5px 8px;}
+    .btn-menu-cta{padding:10px 16px; font-size:11px;}
+    .hero{padding:64px 18px 60px;}
+    .container{padding:0 18px;}
+    .section-head{padding:0 18px;}
+    .feature-track{padding:6px 18px 18px;}
+    .menu-tabs{padding:0 18px;}
+    .menu-section .container{padding:0;}
+    .menu-grid{padding:0 18px;}
+    .amenity-grid{grid-template-columns:1fr;}
+    .amenity-block{border-right:none;}
+    .footer-grid{grid-template-columns:1fr; padding:0 18px 40px;}
+    .footer-bottom{padding:22px 18px 26px; flex-direction:column; align-items:flex-start;}
+    .acc-grid{grid-template-columns:1fr;}
+    .add-item-block .field-row{grid-template-columns:1fr;}
+    .lb-details{padding:24px 20px 28px;}
+  }
+</style>
+</head>
+<body>
+
+<!-- ============ NAVBAR ============ -->
+<header class="nav">
+  <div class="nav-inner">
+    <div class="brand-cluster">
+      <span class="route-badge">NH 44</span>
+      <div class="brand-name">Priyadarshini<span>Veg Restaurant</span></div>
+    </div>
+    <div style="display:flex; align-items:center; gap:10px;">
+      <a class="btn-call-nav" href="tel:+919866671865" title="Call Priyadarshini Veg Restaurant">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+        <span>Call Now</span>
+      </a>
+      <button class="btn-menu-cta" onclick="document.getElementById('menu').scrollIntoView({behavior:'smooth'})">View Menu</button>
+    </div>
+  </div>
+</header>
+
+<!-- ============ HERO ============ -->
+<section class="hero">
+  <div class="heritage-badge"><b>4.1 ★ Rated</b> <span class="arrow">➜</span> 172 Google Reviews</div>
+  <h1>Pure Vegetarian Fare, <em>Served with Legacy</em></h1>
+  <p class="hero-tagline">A trusted pure-veg stop on NH 44, Kallakal — serving highway travellers and local families with honest thalis, tandoor breads, and warm hospitality.</p>
+
+  <div class="info-pills">
+    <div class="pill"><span class="dot"></span> Open Daily · 7 AM – 11 PM</div>
+    <div class="pill"><span class="dot"></span> ₹800 for Two</div>
+    <div class="pill"><span class="dot"></span> Wheelchair Accessible</div>
+    <div class="pill"><span class="dot"></span> 100% Pure Vegetarian Kitchen</div>
+  </div>
+
+  <div class="hero-cta">
+    <div class="down-arrow-btn" onclick="document.getElementById('menu').scrollIntoView({behavior:'smooth'})">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 4v16M5 13l7 7 7-7"/></svg>
+    </div>
+    <small>Explore the Menu</small>
+  </div>
+
+  <div class="hero-actions">
+    <a class="hero-action-btn" href="tel:+919866671865">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+      Call to Reserve
+    </a>
+    <a class="hero-action-btn" href="https://www.google.com/maps?q=17.6936497,78.4797734" target="_blank" rel="noopener">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+      Get Directions
+    </a>
+  </div>
+</section>
+
+<!-- ============ FEATURE HIGHLIGHTS ============ -->
+<section class="features">
+  <div class="section-head container">
+    <h2>Why Travellers Return</h2>
+    <p>Every amenity built around one idea — a proper, unhurried meal on a long highway drive.</p>
+  </div>
+  <div class="feature-track">
+    <div class="feature-card">
+      <svg viewBox="0 0 24 24" fill="none" stroke-width="1.6"><path d="M4 21V8l8-5 8 5v13"/><path d="M9 21v-7h6v7"/></svg>
+      <h3>4.1★ Rated by Diners</h3>
+      <p>Consistently rated by 172+ Google reviewers as a reliable, honest pure-veg stop on the NH 44 stretch.</p>
+    </div>
+    <div class="feature-card">
+      <svg viewBox="0 0 24 24" fill="none" stroke-width="1.6"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg>
+      <h3>Open Through the Day</h3>
+      <p>Live counters open 7 AM to 11 PM daily, timed for breakfast travellers and evening dinner crowds.</p>
+    </div>
+    <div class="feature-card">
+      <svg viewBox="0 0 24 24" fill="none" stroke-width="1.6"><rect x="3" y="7" width="18" height="13" rx="1"/><path d="M8 7V5a4 4 0 0 1 8 0v2"/></svg>
+      <h3>Fully Wheelchair Accessible</h3>
+      <p>Accessible car park, entrance, seating and toilet — verified so every guest can dine comfortably.</p>
+    </div>
+    <div class="feature-card">
+      <svg viewBox="0 0 24 24" fill="none" stroke-width="1.6"><path d="M3 3v18h18"/><path d="M7 14l4-4 3 3 5-6"/></svg>
+      <h3>100% Pure Vegetarian</h3>
+      <p>A dedicated vegetarian-only kitchen — no cross-contamination with meat, poultry or eggs.</p>
+    </div>
+    <div class="feature-card">
+      <svg viewBox="0 0 24 24" fill="none" stroke-width="1.6"><path d="M12 2l2.4 6.6L21 11l-6.6 2.4L12 20l-2.4-6.6L3 11l6.6-2.4z"/></svg>
+      <h3>Reservations Accepted</h3>
+      <p>Call ahead for group tables and family gatherings — no waiting when your convoy pulls in.</p>
+    </div>
+    <div class="feature-card">
+      <svg viewBox="0 0 24 24" fill="none" stroke-width="1.6"><path d="M4 12a8 8 0 1 1 16 0 8 8 0 0 1-16 0z"/><path d="M12 8v4l3 2"/></svg>
+      <h3>Value on the Highway</h3>
+      <p>A well-rounded meal for two averages ₹800 — honest pricing for the quality and portion size.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ MENU ============ -->
+<section class="menu-section" id="menu">
+  <div class="container">
+    <div class="section-head">
+      <h2>The Menu</h2>
+      <p>233 dishes across ten kitchens — from South Indian tiffins to slow-simmered North Indian curries.</p>
+    </div>
+  </div>
+
+  <nav class="menu-tabs" id="menuTabs">
+    <button class="menu-tab active" data-cat="all">All Items</button>
+    <button class="menu-tab" data-cat="tiffins">Tiffins &amp; Dosas</button>
+    <button class="menu-tab" data-cat="starters">Starters</button>
+    <button class="menu-tab" data-cat="mains">Main Course</button>
+    <button class="menu-tab" data-cat="raithas">Raithas</button>
+    <button class="menu-tab" data-cat="soups">Soups</button>
+    <button class="menu-tab" data-cat="breads">Breads</button>
+    <button class="menu-tab" data-cat="rice">Rice &amp; Biryani</button>
+    <button class="menu-tab" data-cat="noodles">Noodles</button>
+    <button class="menu-tab" data-cat="meals">Meals &amp; Thalis</button>
+    <button class="menu-tab" data-cat="beverages">Beverages &amp; Desserts</button>
+  </nav>
+
+  <div class="container">
+    <div class="menu-grid" id="menuGrid"></div>
+  </div>
+</section>
+
+<!-- ============ LIGHTBOX ============ -->
+<div class="lightbox" id="lightbox">
+  <div class="lb-panel">
+    <button class="lb-close" id="lbClose">✕</button>
+    <div class="lb-media">
+      <img id="lbImg" src="" alt="" style="width:100%;height:100%;object-fit:cover;display:none;transition:transform 0.15s ease-out;">
+      <svg id="lbSvg" viewBox="0 0 24 24" fill="none" stroke="#1C1A17" stroke-width="1.2"><rect x="3" y="4" width="18" height="16" rx="1"/><circle cx="8.5" cy="10" r="1.6"/><path d="M21 16l-5.5-5.5L9 17"/></svg>
+      <div class="lb-zoom-tools">
+        <button title="Zoom in">+</button>
+        <button title="Zoom out">–</button>
+        <button title="Reset">⤢</button>
+      </div>
+    </div>
+    <div class="lb-details">
+      <div class="lb-meta">
+        <span id="lbCat">Category</span>
+        <span id="lbSpice">Medium Spice</span>
+        <span>Pure Veg</span>
+      </div>
+      <h3 id="lbName">Dish Name</h3>
+      <p class="desc" id="lbDesc">Description of the dish will appear here.</p>
+      <div class="lb-price-row">
+        <span class="price" id="lbPrice">₹0</span>
+        <button class="lb-add-btn">Add to Order</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ============ AMENITY DIRECTORY ============ -->
+<section class="amenities">
+  <div class="container">
+    <div class="section-head">
+      <h2>Amenity Directory</h2>
+      <p>Everything on-site, organised for a quick highway stop.</p>
+    </div>
+    <div class="amenity-grid">
+      <div class="amenity-block">
+        <h4>Seating</h4>
+        <ul>
+          <li>Family-friendly dine-in hall</li>
+          <li>Comfortable seating for groups</li>
+          <li>Wheelchair-accessible seating</li>
+          <li>Call ahead for large parties</li>
+        </ul>
+      </div>
+      <div class="amenity-block">
+        <h4>Facilities</h4>
+        <ul>
+          <li>Wheelchair-accessible car park</li>
+          <li>Wheelchair-accessible entrance &amp; seating</li>
+          <li>Wheelchair-accessible toilet</li>
+          <li>Clean washrooms, both wings</li>
+        </ul>
+      </div>
+      <div class="amenity-block">
+        <h4>Service Windows</h4>
+        <ul>
+          <li>Open daily — 7:00 AM to 11:00 PM</li>
+          <li>Lunch thali — 12:00 PM to 4:00 PM</li>
+          <li>Dinner &amp; à la carte — 7:00 PM onward</li>
+          <li>Reservations accepted for groups</li>
+        </ul>
+      </div>
+      <div class="amenity-block">
+        <h4>Payments &amp; Policy</h4>
+        <ul>
+          <li>Cash, UPI and all major cards</li>
+          <li>Advance booking for groups of 20+</li>
+          <li>Takeaway and highway parcels</li>
+          <li>No outside food in the dining hall</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer>
+  <div class="container footer-grid">
+    <div class="footer-brand">
+      <div class="brand-name">Priyadarshini<span>Veg Restaurant</span></div>
+      <p>A trusted pure vegetarian restaurant on NH 44, Kallakal — rated 4.1★ by 172 diners.</p>
+    </div>
+    <div>
+      <h5>Find Us</h5>
+      <p class="addr-line">Survey No. 296, NH 44, Kallakal<br>Manoharabad Mandal, Medak Dist<br>Telangana 502336</p>
+      <p class="addr-line" style="margin-top:8px;"><a href="tel:+919866671865" style="color:var(--crimson); font-weight:700;">📞 +91 98666 71865</a></p>
+    </div>
+    <div>
+      <h5>Operating Hours</h5>
+      <p class="hours-line"><b>Everyday</b> — 7:00 AM to 11:00 PM<br>Reservations accepted</p>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2026 Priyadarshini Veg Restaurant. All rights reserved.</p>
+    <button class="staff-portal-btn" id="staffPortalBtn">Staff Portal Access</button>
+  </div>
+</footer>
+
+<!-- ============ ADMIN OVERLAY ============ -->
+<div class="admin-overlay" id="adminOverlay">
+
+  <!-- LOGIN SCREEN -->
+  <div class="admin-login" id="adminLogin">
+    <button class="login-close" id="adminExit">✕ Close Portal</button>
+    <div class="login-card">
+      <span class="eyebrow">Restricted Access</span>
+      <h3>Staff Portal</h3>
+      <p class="sub">Sign in to manage the live menu &amp; pricing</p>
+      <div class="field">
+        <label>Staff ID</label>
+        <input type="text" id="staffId" placeholder="e.g. PVR-014" value="PVR-014">
+      </div>
+      <div class="field">
+        <label>Password</label>
+        <input type="password" id="staffPass" placeholder="Enter password">
+      </div>
+      <button class="btn-solid-gold" id="staffLoginBtn">Enter Dashboard</button>
+      <p class="login-error" id="loginError"></p>
+    </div>
+  </div>
+
+  <!-- DASHBOARD -->
+  <div class="admin-dash" id="adminDash">
+    <div class="admin-topbar">
+      <div class="brand-name">Priyadarshini<span>Management Dashboard</span></div>
+      <button class="logout-btn" id="logoutBtn">Log Out</button>
+    </div>
+    <div class="admin-body">
+
+      <div class="admin-section-title">
+        <h3>Live Menu Items</h3>
+        <span class="admin-tag" id="itemCountTag">— items</span>
+      </div>
+      <div class="accordion" id="adminAccordion"></div>
+
+      <div class="admin-section-title">
+        <h3>Add New Item</h3>
+        <span class="admin-tag">Draft</span>
+      </div>
+      <div class="add-item-block">
+        <div class="field-row">
+          <div class="field">
+            <label>Item Name</label>
+            <input type="text" id="newName" placeholder="e.g. Hyderabadi Baghara Baingan">
+          </div>
+          <div class="field">
+            <label>Category</label>
+            <select id="newCat">
+              <option value="tiffins">Tiffins &amp; Dosas</option>
+              <option value="starters">Starters</option>
+              <option value="mains">Main Course</option>
+              <option value="raithas">Raithas</option>
+              <option value="soups">Soups</option>
+              <option value="breads">Breads</option>
+              <option value="rice">Rice &amp; Biryani</option>
+              <option value="noodles">Noodles</option>
+              <option value="meals">Meals &amp; Thalis</option>
+              <option value="beverages">Beverages &amp; Desserts</option>
+            </select>
+          </div>
+          <div class="field">
+            <label>Base Price (₹)</label>
+            <input type="number" id="newPrice" placeholder="e.g. 260">
+          </div>
+        </div>
+        <div class="field">
+          <label>Description</label>
+          <textarea id="newDesc" rows="2" placeholder="Short, appetising description of the dish"></textarea>
+        </div>
+
+        <div class="field">
+          <label>Dish Photography</label>
+          <div class="upload-block">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#1C1A17" stroke-width="1.4"><path d="M12 16V4M7 9l5-5 5 5"/><path d="M4 16v3a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-3"/></svg>
+            <p>Drag image here, or <b>browse files</b> · JPG/PNG up to 5MB</p>
+          </div>
+          <input type="file" id="newImgFile" accept="image/*" style="display:none;">
+        </div>
+        <button class="btn-solid-gold" id="addItemBtn" style="width:auto; padding:13px 30px; margin-top:22px;">Add Item to Menu</button>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<script>
+  // ============ MENU DATA ============
+  const MENU_STORAGE_KEY = 'pvr_menu_data_v1';
+  let dishes = [
+    {name:'Idly', cat:'tiffins', price:60, fav:false, spice:'Medium Spice', desc:'A classic South Indian breakfast favourite, made fresh to order.', img:'Item & Dish images/dish images/01_1_Idly_Soft_steamed_white.jpg'},
+    {name:'Ghee Idly', cat:'tiffins', price:90, fav:false, spice:'Medium Spice', desc:'A classic South Indian breakfast favourite, made fresh to order.', img:'Item & Dish images/dish images/02_2_Ghee_Idly_Soft_steamed_.jpg'},
+    {name:'Vada', cat:'tiffins', price:80, fav:false, spice:'Medium Spice', desc:'A classic South Indian breakfast favourite, made fresh to order.', img:'Item & Dish images/dish images/03_3_Vada_Deep-fried_doughnu.jpg'},
+    {name:'Single Idly Vada', cat:'tiffins', price:75, fav:false, spice:'Medium Spice', desc:'A classic South Indian breakfast favourite, made fresh to order.', img:'Item & Dish images/dish images/04_4_Single_Idly_Vada_Soft_s.jpg'},
+    {name:'Plate Idly Vada', cat:'tiffins', price:85, fav:false, spice:'Medium Spice', desc:'A classic South Indian breakfast favourite, made fresh to order.', img:'Item & Dish images/dish images/05_5_Plate_Idly_Vada_Soft_st.jpg'},
+    {name:'Sambar Vada', cat:'tiffins', price:90, fav:false, spice:'Medium Spice', desc:'A classic South Indian breakfast favourite, made fresh to order.', img:'Item & Dish images/dish images/06_6_Sambar_Vada_Deep-fried_.jpg'},
+    {name:'Sambar Idly', cat:'tiffins', price:70, fav:false, spice:'Medium Spice', desc:'A classic South Indian breakfast favourite, made fresh to order.', img:'Item & Dish images/dish images/07_7_Sambar_Idly_Soft_steame.jpg'},
+    {name:'Rasam Idly', cat:'tiffins', price:70, fav:false, spice:'Medium Spice', desc:'A classic South Indian breakfast favourite, made fresh to order.', img:'Item & Dish images/dish images/08_8_Rasam_Idly_Soft_steamed.jpg'},
+    {name:'Rasam Vada', cat:'tiffins', price:90, fav:false, spice:'Medium Spice', desc:'A classic South Indian breakfast favourite, made fresh to order.', img:'Item & Dish images/dish images/09_9_Rasam_Vada_Deep-fried_d.jpg'},
+    {name:'Upma', cat:'tiffins', price:60, fav:false, spice:'Medium Spice', desc:'A classic South Indian breakfast favourite, made fresh to order.', img:'Item & Dish images/dish images/10_10_Upma_A_bowl_of_semolin.jpg'},
+    {name:'Tamato Bath', cat:'tiffins', price:60, fav:false, spice:'Medium Spice', desc:'A classic South Indian breakfast favourite, made fresh to order.', img:'Item & Dish images/dish images/01_11_Tamato_Bath_A_bowl_of_.jpg'},
+    {name:'Rice Pongal', cat:'tiffins', price:90, fav:false, spice:'Medium Spice', desc:'A classic South Indian breakfast favourite, made fresh to order.', img:'Item & Dish images/dish images/02_12_Rice_Pongal_A_creamy_b.jpg'},
+    {name:'Mysore Bajji', cat:'tiffins', price:60, fav:false, spice:'Medium Spice', desc:'A classic South Indian breakfast favourite, made fresh to order.', img:'Item & Dish images/dish images/03_13_Mysore_Bajji_Golden_de.jpg'},
+    {name:'Masala Dosa', cat:'tiffins', price:80, fav:true, spice:'Medium Spice', desc:'A classic South Indian breakfast favourite, made fresh to order.', img:'Item & Dish images/dish images/05_15_Plain_Dosa_A_crispy_go.jpg'},
+    {name:'Plain Dosa', cat:'tiffins', price:70, fav:false, spice:'Medium Spice', desc:'A classic South Indian breakfast favourite, made fresh to order.', img:'Item & Dish images/dish images/05_15_Plain_Dosa_A_crispy_go.jpg'},
+    {name:'Poori', cat:'tiffins', price:75, fav:false, spice:'Medium Spice', desc:'A classic South Indian breakfast favourite, made fresh to order.', img:'Item & Dish images/dish images/16_16_Poori_Puffed_golden-br.jpg'},
+    {name:'Set Dosa', cat:'tiffins', price:90, fav:false, spice:'Medium Spice', desc:'A classic South Indian breakfast favourite, made fresh to order.', img:'Item & Dish images/dish images/07_17_Set_Dosa_A_crispy_gold.jpg'},
+    {name:'Rava Dosa', cat:'tiffins', price:90, fav:false, spice:'Medium Spice', desc:'A classic South Indian breakfast favourite, made fresh to order.', img:'Item & Dish images/dish images/08_18_Rava_Dosa_A_crispy_gol.jpg'},
+    {name:'Onion Dosa', cat:'tiffins', price:90, fav:false, spice:'Medium Spice', desc:'A classic South Indian breakfast favourite, made fresh to order.', img:'Item & Dish images/dish images/09_19_Onion_Dosa_A_crispy_go.jpg'},
+    {name:'70mm Dosa', cat:'tiffins', price:100, fav:false, spice:'Medium Spice', desc:'A classic South Indian breakfast favourite, made fresh to order.', img:'Item & Dish images/dish images/10_20_70mm_Dosa_A_crispy_gol.jpg'},
+    {name:'Utappa', cat:'tiffins', price:95, fav:false, spice:'Medium Spice', desc:'A classic South Indian breakfast favourite, made fresh to order.', img:'Item & Dish images/dish images/11_21_Utappa_A_thick_pancake.jpg'},
+    {name:'Onion Rava Dosa', cat:'tiffins', price:95, fav:false, spice:'Medium Spice', desc:'A classic South Indian breakfast favourite, made fresh to order.', img:'Item & Dish images/dish images/12_22_Onion_Rava_Dosa_A_cris.jpg'},
+    {name:'Pesarattu', cat:'tiffins', price:85, fav:false, spice:'Medium Spice', desc:'A classic South Indian breakfast favourite, made fresh to order.', img:'Item & Dish images/dish images/13_23_Pesarattu_A_green-lent.jpg'},
+    {name:'Butter Dosa', cat:'tiffins', price:95, fav:false, spice:'Medium Spice', desc:'A classic South Indian breakfast favourite, made fresh to order.', img:'Item & Dish images/dish images/14_24_Butter_Dosa_A_crispy_g.jpg'},
+    {name:'MLA Pesarattu', cat:'tiffins', price:110, fav:false, spice:'Medium Spice', desc:'A classic South Indian breakfast favourite, made fresh to order.', img:'Item & Dish images/dish images/15_25_MLA_Pesarattu_A_green-.jpg'},
+    {name:'MLA Dosa', cat:'tiffins', price:110, fav:false, spice:'Medium Spice', desc:'A classic South Indian breakfast favourite, made fresh to order.', img:'Item & Dish images/dish images/16_26_MLA_Dosa_A_crispy_gold.jpg'},
+    {name:'Paper Dosa', cat:'tiffins', price:100, fav:false, spice:'Medium Spice', desc:'A classic South Indian breakfast favourite, made fresh to order.', img:'Item & Dish images/dish images/17_27_Paper_Dosa_A_crispy_go.jpg'},
+    {name:'Paneer Rava Dosa', cat:'tiffins', price:120, fav:false, spice:'Medium Spice', desc:'A classic South Indian breakfast favourite, made fresh to order.', img:'Item & Dish images/dish images/18_28_Paneer_Rava_Dosa_A_cri.jpg'},
+    {name:'Karam Podi Masala Dosa', cat:'tiffins', price:100, fav:false, spice:'Medium Spice', desc:'A classic South Indian breakfast favourite, made fresh to order.', img:'Item & Dish images/dish images/19_29_Karam_Podi_Masala_Dosa.jpg'},
+    {name:'Paneer Butter Masala Dosa', cat:'tiffins', price:120, fav:false, spice:'Medium Spice', desc:'A classic South Indian breakfast favourite, made fresh to order.', img:'Item & Dish images/dish images/20_30_Paneer_Butter_Masala_D.jpg'},
+    {name:'Palak Paneer Dosa', cat:'tiffins', price:120, fav:false, spice:'Medium Spice', desc:'A classic South Indian breakfast favourite, made fresh to order.', img:'Item & Dish images/dish images/21_31_Palak_Paneer_Dosa_A_cr.jpg'},
+    {name:'Channa Masala Dosa', cat:'tiffins', price:120, fav:false, spice:'Medium Spice', desc:'A classic South Indian breakfast favourite, made fresh to order.', img:'Item & Dish images/dish images/22_32_Channa_Masala_Dosa_A_c.jpg'},
+    {name:'Cheese Dosa', cat:'tiffins', price:120, fav:false, spice:'Medium Spice', desc:'A classic South Indian breakfast favourite, made fresh to order.', img:'Item & Dish images/dish images/23_33_Cheese_Dosa_A_crispy_g.jpg'},
+    {name:'Chapathi', cat:'tiffins', price:80, fav:false, spice:'Medium Spice', desc:'A classic South Indian breakfast favourite, made fresh to order.', img:'Item & Dish images/dish images/24_34_Chapathi_Soft_Indian_f.jpg'},
+    {name:'Dahi Vada', cat:'tiffins', price:90, fav:false, spice:'Medium Spice', desc:'A classic South Indian breakfast favourite, made fresh to order.', img:'Item & Dish images/dish images/25_35_Dahi_Vada_Deep-fried_d.jpg'},
+    {name:'Bisi Bele Bath', cat:'tiffins', price:90, fav:false, spice:'Medium Spice', desc:'A classic South Indian breakfast favourite, made fresh to order.', img:'Item & Dish images/dish images/26_36_Bisi_Bele_Bath_A_bowl_.jpg'},
+    {name:'Roasted Papad', cat:'starters', price:35, fav:false, spice:'Medium Spice', desc:'A crisp, flavour-packed starter fired up on high heat.', img:'Item & Dish images/dish images/27_37_Roasted_Papad_A_thin_c.jpg'},
+    {name:'Fry Papad', cat:'starters', price:35, fav:false, spice:'Medium Spice', desc:'A crisp, flavour-packed starter fired up on high heat.', img:'Item & Dish images/dish images/28_38_Fry_Papad_A_thin_circu.jpg'},
+    {name:'Masala Papad', cat:'starters', price:50, fav:false, spice:'Medium Spice', desc:'A crisp, flavour-packed starter fired up on high heat.', img:'Item & Dish images/dish images/29_39_Masala_Papad_A_thin_ci.jpg'},
+    {name:'Crispy Corn', cat:'starters', price:160, fav:false, spice:'Medium Spice', desc:'A crisp, flavour-packed starter fired up on high heat.', img:'Item & Dish images/dish images/30_40_Crispy_Corn_Crispy_fri.jpg'},
+    {name:'Veg 65', cat:'starters', price:170, fav:false, spice:'Medium Spice', desc:'A crisp, flavour-packed starter fired up on high heat.', img:'Item & Dish images/dish images/31_41_Veg_65_Deep-red_deep-f.jpg'},
+    {name:'Aloo 65', cat:'starters', price:160, fav:false, spice:'Medium Spice', desc:'A crisp, flavour-packed starter fired up on high heat.', img:'Item & Dish images/dish images/32_42_Aloo_65_Deep-red_deep-.jpg'},
+    {name:'Babycorn 65', cat:'starters', price:180, fav:false, spice:'Medium Spice', desc:'A crisp, flavour-packed starter fired up on high heat.', img:'Item & Dish images/dish images/33_43_Babycorn_65_Deep-red_d.jpg'},
+    {name:'Paneer 65', cat:'starters', price:190, fav:true, spice:'Medium Spice', desc:'A crisp, flavour-packed starter fired up on high heat.', img:'Item & Dish images/dish images/34_44_Paneer_65_Deep-red_dee.jpg'},
+    {name:'Chilli Baby Corn', cat:'starters', price:180, fav:false, spice:'Medium Spice', desc:'A crisp, flavour-packed starter fired up on high heat.', img:'Item & Dish images/dish images/35_45_Chilli_Baby_Corn_Crisp.jpg'},
+    {name:'Mushroom Chilly', cat:'starters', price:200, fav:false, spice:'Medium Spice', desc:'A crisp, flavour-packed starter fired up on high heat.', img:'Item & Dish images/dish images/36_46_Mushroom_Chilly_Crispy.jpg'},
+    {name:'Babycorn Manchuria', cat:'starters', price:190, fav:false, spice:'Medium Spice', desc:'A crisp, flavour-packed starter fired up on high heat.', img:'Item & Dish images/dish images/37_47_Babycorn_Manchuria_Glo.jpg'},
+    {name:'Chilli Gobi', cat:'starters', price:160, fav:false, spice:'Medium Spice', desc:'A crisp, flavour-packed starter fired up on high heat.', img:'Item & Dish images/dish images/38_48_Chilli_Gobi_Crispy_gob.jpg'},
+    {name:'Gobi Manchuria', cat:'starters', price:170, fav:false, spice:'Medium Spice', desc:'A crisp, flavour-packed starter fired up on high heat.', img:'Item & Dish images/dish images/39_49_Gobi_Manchuria_Glossy_.jpg'},
+    {name:'Veg Manchuria', cat:'starters', price:170, fav:false, spice:'Medium Spice', desc:'A crisp, flavour-packed starter fired up on high heat.', img:'Item & Dish images/dish images/40_50_Veg_Manchuria_Glossy_d.jpg'},
+    {name:'Paneer Manchuria', cat:'starters', price:190, fav:false, spice:'Medium Spice', desc:'A crisp, flavour-packed starter fired up on high heat.', img:'Item & Dish images/dish images/41_51_Paneer_Manchuria_Gloss.jpg'},
+    {name:'Mushroom Manchuria', cat:'starters', price:190, fav:false, spice:'Medium Spice', desc:'A crisp, flavour-packed starter fired up on high heat.', img:'Item & Dish images/dish images/42_52_Mushroom_Manchuria_Glo.jpg'},
+    {name:'Veg Spring Roll', cat:'starters', price:190, fav:false, spice:'Medium Spice', desc:'A crisp, flavour-packed starter fired up on high heat.', img:'Item & Dish images/dish images/43_53_Veg_Spring_Roll_Crispy.jpg'},
+    {name:'Paneer Chilly', cat:'starters', price:190, fav:false, spice:'Medium Spice', desc:'A crisp, flavour-packed starter fired up on high heat.', img:'Item & Dish images/dish images/44_54_Paneer_Chilly_Crispy_p.jpg'},
+    {name:'Kaju Tomato Masala', cat:'mains', price:290, fav:false, spice:'Medium Spice', desc:'A rich, home-style curry simmered with hand-ground spices.', img:'Item & Dish images/dish images/45_55_Kaju_Tomato_Masala_Kaj.jpg'},
+    {name:'Methi Paneer', cat:'mains', price:250, fav:false, spice:'Medium Spice', desc:'A rich, home-style curry simmered with hand-ground spices.', img:'Item & Dish images/dish images/46_56_Methi_Paneer_Paneer_si.jpg'},
+    {name:'Plain Palak', cat:'mains', price:230, fav:false, spice:'Medium Spice', desc:'A rich, home-style curry simmered with hand-ground spices.', img:'Item & Dish images/dish images/47_57_Plain_Palak_Palak_simm.jpg'},
+    {name:'Chana Masala', cat:'mains', price:240, fav:false, spice:'Medium Spice', desc:'A rich, home-style curry simmered with hand-ground spices.', img:'Item & Dish images/dish images/48_58_Chana_Masala_Chana_sim.jpg'},
+    {name:'Capsicum Masala', cat:'mains', price:240, fav:false, spice:'Medium Spice', desc:'A rich, home-style curry simmered with hand-ground spices.', img:'Item & Dish images/dish images/49_59_Capsicum_Masala_Capsic.jpg'},
+    {name:'Aloo Gobi Butter Masala', cat:'mains', price:240, fav:false, spice:'Medium Spice', desc:'A rich, home-style curry simmered with hand-ground spices.', img:'Item & Dish images/dish images/50_60_Aloo_Gobi_Butter_Masal.jpg'},
+    {name:'Dum Aloo', cat:'mains', price:230, fav:false, spice:'Medium Spice', desc:'A rich, home-style curry simmered with hand-ground spices.', img:'Item & Dish images/dish images/51_61_Dum_Aloo_Aloo_simmered.jpg'},
+    {name:'Mix Veg', cat:'mains', price:230, fav:false, spice:'Medium Spice', desc:'A rich, home-style curry simmered with hand-ground spices.', img:'Item & Dish images/dish images/52_62_Mix_Veg_Veg_simmered_i.jpg'},
+    {name:'Chola Batura', cat:'mains', price:250, fav:false, spice:'Medium Spice', desc:'A rich, home-style curry simmered with hand-ground spices.', img:'Item & Dish images/dish images/53_63_Chola_Batura_Vegetable.jpg'},
+    {name:'Stuffed Dum Aloo', cat:'mains', price:230, fav:false, spice:'Medium Spice', desc:'A rich, home-style curry simmered with hand-ground spices.', img:'Item & Dish images/dish images/54_64_Stuffed_Dum_Aloo_Aloo_.jpg'},
+    {name:'Dum Aloo Kashmiri', cat:'mains', price:240, fav:false, spice:'Medium Spice', desc:'A rich, home-style curry simmered with hand-ground spices.', img:'Item & Dish images/dish images/55_65_Dum_Aloo_Kashmiri_Aloo.jpg'},
+    {name:'Veg Aashiyana', cat:'mains', price:260, fav:false, spice:'Medium Spice', desc:'A rich, home-style curry simmered with hand-ground spices.', img:'Item & Dish images/dish images/56_66_Veg_Aashiyana_Veg_simm.jpg'},
+    {name:'Veg Dopyaza', cat:'mains', price:250, fav:false, spice:'Medium Spice', desc:'A rich, home-style curry simmered with hand-ground spices.', img:'Item & Dish images/dish images/57_67_Veg_Dopyaza_Veg_simmer.jpg'},
+    {name:'Kaju Masala', cat:'mains', price:290, fav:false, spice:'Medium Spice', desc:'A rich, home-style curry simmered with hand-ground spices.', img:'Item & Dish images/dish images/58_68_Kaju_Masala_Kaju_simme.jpg'},
+    {name:'Malai Kofta', cat:'mains', price:250, fav:true, spice:'Medium Spice', desc:'A rich, home-style curry simmered with hand-ground spices.', img:'Item & Dish images/dish images/59_69_Malai_Kofta_Kofta_simm.jpg'},
+    {name:'Navratan Korma', cat:'mains', price:280, fav:false, spice:'Medium Spice', desc:'A rich, home-style curry simmered with hand-ground spices.', img:'Item & Dish images/dish images/60_70_Navratan_Korma_Vegetab.jpg'},
+    {name:'Gujarati Kofta', cat:'mains', price:260, fav:false, spice:'Medium Spice', desc:'A rich, home-style curry simmered with hand-ground spices.', img:'Item & Dish images/dish images/Gujarati_Kofta_North_Indian_curry_202607090826.jpeg'},
+    {name:'Veg Jaipuri', cat:'mains', price:260, fav:false, spice:'Medium Spice', desc:'A rich, home-style curry simmered with hand-ground spices.', img:'Item & Dish images/dish images/62_72_Veg_Jaipuri_Veg_simmer.jpg'},
+    {name:'Nargis Kofta', cat:'mains', price:250, fav:false, spice:'Medium Spice', desc:'A rich, home-style curry simmered with hand-ground spices.', img:'Item & Dish images/dish images/63_73_Nargis_Kofta_Kofta_sim.jpg'},
+    {name:'Priyadarshini Spl. Curry', cat:'mains', price:330, fav:true, spice:'Medium Spice', desc:'A rich, home-style curry simmered with hand-ground spices.', img:'Item & Dish images/dish images/64_74_Priyadarshini_Spl_Curr.jpg'},
+    {name:'Paneer Chatpat', cat:'mains', price:250, fav:false, spice:'Medium Spice', desc:'A rich, home-style curry simmered with hand-ground spices.', img:'Item & Dish images/dish images/65_75_Paneer_Chatpat_Paneer_.jpg'},
+    {name:'Veg Hatpat', cat:'mains', price:250, fav:false, spice:'Medium Spice', desc:'A rich, home-style curry simmered with hand-ground spices.', img:'Item & Dish images/dish images/66_76_Veg_Hatpat_Veg_simmere.jpg'},
+    {name:'Veg Khandari', cat:'mains', price:250, fav:false, spice:'Medium Spice', desc:'A rich, home-style curry simmered with hand-ground spices.', img:'Item & Dish images/dish images/67_77_Veg_Khandari_Veg_simme.jpg'},
+    {name:'Kaju Dingari', cat:'mains', price:300, fav:false, spice:'Medium Spice', desc:'A rich, home-style curry simmered with hand-ground spices.', img:'Item & Dish images/dish images/68_78_Kaju_Dingari_Kaju_simm.jpg'},
+    {name:'Paneer Tikka Masala', cat:'mains', price:300, fav:false, spice:'Medium Spice', desc:'A rich, home-style curry simmered with hand-ground spices.', img:'Item & Dish images/dish images/69_79_Paneer_Tikka_Masala_Pa.jpg'},
+    {name:'Paneer Gutchi', cat:'mains', price:250, fav:false, spice:'Medium Spice', desc:'A rich, home-style curry simmered with hand-ground spices.', img:'Item & Dish images/dish images/70_80_Paneer_Gutchi_Paneer_s.jpg'},
+    {name:'Veg Makhanwala', cat:'mains', price:250, fav:false, spice:'Medium Spice', desc:'A rich, home-style curry simmered with hand-ground spices.', img:'Item & Dish images/dish images/71_81_Veg_Makhanwala_Veg_sim.jpg'},
+    {name:'Schezwan Paneer', cat:'mains', price:250, fav:false, spice:'Medium Spice', desc:'A rich, home-style curry simmered with hand-ground spices.', img:'Item & Dish images/dish images/72_82_Schezwan_Paneer_Paneer.jpg'},
+    {name:'Kaju Paneer', cat:'mains', price:300, fav:false, spice:'Medium Spice', desc:'A rich, home-style curry simmered with hand-ground spices.', img:'Item & Dish images/dish images/73_83_Kaju_Paneer_Paneer_sim.jpg'},
+    {name:'Methi Chaman', cat:'mains', price:250, fav:false, spice:'Medium Spice', desc:'A rich, home-style curry simmered with hand-ground spices.', img:'Item & Dish images/dish images/74_84_Methi_Chaman_Methi_sim.jpg'},
+    {name:'Paneer Kofta', cat:'mains', price:250, fav:false, spice:'Medium Spice', desc:'A rich, home-style curry simmered with hand-ground spices.', img:'Item & Dish images/dish images/75_85_Paneer_Kofta_Paneer_si.jpg'},
+    {name:'Palak Paneer', cat:'mains', price:250, fav:false, spice:'Medium Spice', desc:'A rich, home-style curry simmered with hand-ground spices.', img:'Item & Dish images/dish images/76_86_Palak_Paneer_Paneer_si.jpg'},
+    {name:'Paneer Butter Masala', cat:'mains', price:250, fav:true, spice:'Medium Spice', desc:'A rich, home-style curry simmered with hand-ground spices.', img:'Item & Dish images/dish images/77_87_Paneer_Butter_Masala_P.jpg'},
+    {name:'Shahi Paneer', cat:'mains', price:250, fav:false, spice:'Medium Spice', desc:'A rich, home-style curry simmered with hand-ground spices.', img:'Item & Dish images/dish images/78_88_Shahi_Paneer_Paneer_si.jpg'},
+    {name:'Paneer Dopyaza', cat:'mains', price:250, fav:false, spice:'Medium Spice', desc:'A rich, home-style curry simmered with hand-ground spices.', img:'Item & Dish images/dish images/79_89_Paneer_Dopyaza_Paneer_.jpg'},
+    {name:'Paneer Korma', cat:'mains', price:250, fav:false, spice:'Medium Spice', desc:'A rich, home-style curry simmered with hand-ground spices.', img:'Item & Dish images/dish images/80_90_Paneer_Korma_Paneer_si.jpg'},
+    {name:'Paneer Pasand', cat:'mains', price:250, fav:false, spice:'Medium Spice', desc:'A rich, home-style curry simmered with hand-ground spices.', img:'Item & Dish images/dish images/81_91_Paneer_Pasand_Paneer_s.jpg'},
+    {name:'Mushroom Palak', cat:'mains', price:250, fav:false, spice:'Medium Spice', desc:'A rich, home-style curry simmered with hand-ground spices.', img:'Item & Dish images/dish images/82_92_Mushroom_Palak_Mushroo.jpg'},
+    {name:'Capsicum Mushroom', cat:'mains', price:250, fav:false, spice:'Medium Spice', desc:'A rich, home-style curry simmered with hand-ground spices.', img:'Item & Dish images/dish images/83_93_Capsicum_Mushroom_Mush.jpg'},
+    {name:'Mushroom Masala', cat:'mains', price:250, fav:false, spice:'Medium Spice', desc:'A rich, home-style curry simmered with hand-ground spices.', img:'Item & Dish images/dish images/84_94_Mushroom_Masala_Mushro.jpg'},
+    {name:'Mushroom Shahi Korma', cat:'mains', price:250, fav:false, spice:'Medium Spice', desc:'A rich, home-style curry simmered with hand-ground spices.', img:'Item & Dish images/dish images/85_95_Mushroom_Shahi_Korma_M.jpg'},
+    {name:'Mushroom Dopyaza', cat:'mains', price:250, fav:false, spice:'Medium Spice', desc:'A rich, home-style curry simmered with hand-ground spices.', img:'Item & Dish images/dish images/86_96_Mushroom_Dopyaza_Mushr.jpg'},
+    {name:'Butter Mushroom', cat:'mains', price:250, fav:false, spice:'Medium Spice', desc:'A rich, home-style curry simmered with hand-ground spices.', img:'Item & Dish images/dish images/87_97_Butter_Mushroom_Mushro.jpg'},
+    {name:'Kadai Veg', cat:'mains', price:250, fav:false, spice:'Medium Spice', desc:'A rich, home-style curry simmered with hand-ground spices.', img:'Item & Dish images/dish images/88_98_Kadai_Veg_Veg_simmered.jpg'},
+    {name:'Kadai Paneer', cat:'mains', price:250, fav:false, spice:'Medium Spice', desc:'A rich, home-style curry simmered with hand-ground spices.', img:'Item & Dish images/dish images/89_99_Kadai_Paneer_Paneer_si.jpg'},
+    {name:'Kadai Mushroom', cat:'mains', price:250, fav:false, spice:'Medium Spice', desc:'A rich, home-style curry simmered with hand-ground spices.', img:'Item & Dish images/dish images/90_100_Kadai_Mushroom_Mushro.jpg'},
+    {name:'Ginger Paneer', cat:'mains', price:250, fav:false, spice:'Medium Spice', desc:'A rich, home-style curry simmered with hand-ground spices.', img:'Item & Dish images/dish images/91_101_Ginger_Paneer_Paneer_.jpg'},
+    {name:'Ginger Gobi', cat:'mains', price:250, fav:false, spice:'Medium Spice', desc:'A rich, home-style curry simmered with hand-ground spices.', img:'Item & Dish images/dish images/92_102_Ginger_Gobi_Gobi_simm.jpg'},
+    {name:'Ginger Veg', cat:'mains', price:250, fav:false, spice:'Medium Spice', desc:'A rich, home-style curry simmered with hand-ground spices.', img:'Item & Dish images/dish images/93_103_Ginger_Veg_Veg_simmer.jpg'},
+    {name:'Ginger Mushroom', cat:'mains', price:250, fav:false, spice:'Medium Spice', desc:'A rich, home-style curry simmered with hand-ground spices.', img:'Item & Dish images/dish images/94_104_Ginger_Mushroom_Mushr.jpg'},
+    {name:'Dal Fry', cat:'mains', price:200, fav:false, spice:'Medium Spice', desc:'A rich, home-style curry simmered with hand-ground spices.', img:'Item & Dish images/dish images/95_105_Dal_Fry_Dal_simmered_.jpg'},
+    {name:'Dal Tadka', cat:'mains', price:210, fav:false, spice:'Medium Spice', desc:'A rich, home-style curry simmered with hand-ground spices.', img:'Item & Dish images/dish images/96_106_Dal_Tadka_Dal_simmere.jpg'},
+    {name:'Dal Butter', cat:'mains', price:210, fav:false, spice:'Medium Spice', desc:'A rich, home-style curry simmered with hand-ground spices.', img:'Item & Dish images/dish images/97_107_Dal_Butter_Dal_simmer.jpg'},
+    {name:'Aloo Palak', cat:'mains', price:230, fav:false, spice:'Medium Spice', desc:'A rich, home-style curry simmered with hand-ground spices.', img:'Item & Dish images/dish images/98_108_Aloo_Palak_Aloo_simme.jpg'},
+    {name:'Aloo Gobi', cat:'mains', price:230, fav:false, spice:'Medium Spice', desc:'A rich, home-style curry simmered with hand-ground spices.', img:'Item & Dish images/dish images/99_109_Aloo_Gobi_Gobi_simmer.jpg'},
+    {name:'Aloo Jeera', cat:'mains', price:220, fav:false, spice:'Medium Spice', desc:'A rich, home-style curry simmered with hand-ground spices.', img:'Item & Dish images/dish images/100_110_Aloo_Jeera_Aloo_simme.jpg'},
+    {name:'Methi Aloo', cat:'mains', price:220, fav:false, spice:'Medium Spice', desc:'A rich, home-style curry simmered with hand-ground spices.', img:'Item & Dish images/dish images/100_110_Aloo_Jeera_Aloo_simme.jpg'},
+    {name:'Green Peas Masala', cat:'mains', price:230, fav:false, spice:'Medium Spice', desc:'A rich, home-style curry simmered with hand-ground spices.', img:'Item & Dish images/dish images/102_112_Green_Peas_Masala_Veg.jpg'},
+    {name:'Stuffed Tomato', cat:'mains', price:230, fav:false, spice:'Medium Spice', desc:'A rich, home-style curry simmered with hand-ground spices.', img:'Item & Dish images/dish images/103_113_Stuffed_Tomato_Vegeta.jpg'},
+    {name:'Onion Raitha', cat:'raithas', price:80, fav:false, spice:'Medium Spice', desc:'A cooling yoghurt side to balance the spice of your meal.', img:'Item & Dish images/dish images/104_114_Onion_Raitha_A_small_.jpg'},
+    {name:'Boondi Raitha', cat:'raithas', price:80, fav:false, spice:'Medium Spice', desc:'A cooling yoghurt side to balance the spice of your meal.', img:'Item & Dish images/dish images/105_115_Boondi_Raitha_A_small.jpg'},
+    {name:'Veg Raitha', cat:'raithas', price:90, fav:false, spice:'Medium Spice', desc:'A cooling yoghurt side to balance the spice of your meal.', img:'Item & Dish images/dish images/106_116_Veg_Raitha_A_small_bo.jpg'},
+    {name:'Pineapple Raitha', cat:'raithas', price:100, fav:false, spice:'Medium Spice', desc:'A cooling yoghurt side to balance the spice of your meal.', img:'Item & Dish images/dish images/107_117_Pineapple_Raitha_A_sm.jpg'},
+    {name:'Mix Raitha', cat:'raithas', price:90, fav:false, spice:'Medium Spice', desc:'A cooling yoghurt side to balance the spice of your meal.', img:'Item & Dish images/dish images/108_118_Mix_Raitha_A_small_bo.jpg'},
+    {name:'Tomato Soup', cat:'soups', price:100, fav:false, spice:'Medium Spice', desc:'A warming bowl to start your meal right.', img:'Item & Dish images/dish images/109_119_Tomato_Soup_A_steamin.jpg'},
+    {name:'Veg Corn Soup', cat:'soups', price:100, fav:false, spice:'Medium Spice', desc:'A warming bowl to start your meal right.', img:'Item & Dish images/dish images/110_120_Veg_Corn_Soup_A_steam.jpg'},
+    {name:'Veg Hot & Sour Soup', cat:'soups', price:100, fav:false, spice:'Medium Spice', desc:'A warming bowl to start your meal right.', img:'Item & Dish images/dish images/111_121_Veg_Hot_Sour_Soup_A_s.jpg'},
+    {name:'Veg Clear Soup', cat:'soups', price:100, fav:false, spice:'Medium Spice', desc:'A warming bowl to start your meal right.', img:'Item & Dish images/dish images/112_122_Veg_Clear_Soup_A_stea.jpg'},
+    {name:'Mushroom Soup', cat:'soups', price:100, fav:false, spice:'Medium Spice', desc:'A warming bowl to start your meal right.', img:'Item & Dish images/dish images/113_123_Mushroom_Soup_A_steam.jpg'},
+    {name:'Manchow Soup', cat:'soups', price:100, fav:false, spice:'Medium Spice', desc:'A warming bowl to start your meal right.', img:'Item & Dish images/dish images/114_124_Manchow_Soup_A_steami.jpg'},
+    {name:'Roti', cat:'breads', price:25, fav:false, spice:'Medium Spice', desc:'Freshly rolled and finished on the tawa or in the tandoor.', img:'Item & Dish images/dish images/115_125_Roti_A_soft_hand-roll.jpg'},
+    {name:'Methi Roti', cat:'breads', price:30, fav:false, spice:'Medium Spice', desc:'Freshly rolled and finished on the tawa or in the tandoor.', img:'Item & Dish images/dish images/116_126_Methi_Roti_A_soft_han.jpg'},
+    {name:'Pudina Roti', cat:'breads', price:30, fav:false, spice:'Medium Spice', desc:'Freshly rolled and finished on the tawa or in the tandoor.', img:'Item & Dish images/dish images/117_127_Pudina_Roti_A_soft_ha.jpg'},
+    {name:'Butter Roti', cat:'breads', price:30, fav:false, spice:'Medium Spice', desc:'Freshly rolled and finished on the tawa or in the tandoor.', img:'Item & Dish images/dish images/118_128_Butter_Roti_A_soft_ha.jpg'},
+    {name:'North Indian Paratha', cat:'breads', price:50, fav:false, spice:'Medium Spice', desc:'Freshly rolled and finished on the tawa or in the tandoor.', img:'Item & Dish images/dish images/119_129_North_Indian_Paratha_.jpg'},
+    {name:'Aloo Paratha', cat:'breads', price:50, fav:false, spice:'Medium Spice', desc:'Freshly rolled and finished on the tawa or in the tandoor.', img:'Item & Dish images/dish images/120_130_Aloo_Paratha_A_golden.jpg'},
+    {name:'Plain Naan', cat:'breads', price:30, fav:false, spice:'Medium Spice', desc:'Freshly rolled and finished on the tawa or in the tandoor.', img:'Item & Dish images/dish images/121_131_Plain_Naan_A_freshly_.jpg'},
+    {name:'Butter Naan', cat:'breads', price:40, fav:true, spice:'Medium Spice', desc:'Freshly rolled and finished on the tawa or in the tandoor.', img:'Item & Dish images/dish images/122_132_Butter_Naan_A_freshly.jpg'},
+    {name:'Stuffed Naan', cat:'breads', price:45, fav:false, spice:'Medium Spice', desc:'Freshly rolled and finished on the tawa or in the tandoor.', img:'Item & Dish images/dish images/123_133_Stuffed_Naan_A_freshl.jpg'},
+    {name:'Garlic Naan', cat:'breads', price:45, fav:false, spice:'Medium Spice', desc:'Freshly rolled and finished on the tawa or in the tandoor.', img:'Item & Dish images/dish images/124_134_Garlic_Naan_A_freshly.jpg'},
+    {name:'Kashmiri Naan', cat:'breads', price:45, fav:false, spice:'Medium Spice', desc:'Freshly rolled and finished on the tawa or in the tandoor.', img:'Item & Dish images/dish images/125_135_Kashmiri_Naan_A_fresh.jpg'},
+    {name:'Masala Kulcha', cat:'breads', price:60, fav:false, spice:'Medium Spice', desc:'Freshly rolled and finished on the tawa or in the tandoor.', img:'Item & Dish images/dish images/126_136_Masala_Kulcha_A_soft_.jpg'},
+    {name:'Basket Roti', cat:'breads', price:150, fav:false, spice:'Medium Spice', desc:'Freshly rolled and finished on the tawa or in the tandoor.', img:'Item & Dish images/dish images/127_137_Basket_Roti_An_assort.jpg'},
+    {name:'Curd Rice', cat:'rice', price:140, fav:false, spice:'Medium Spice', desc:'Fragrant rice tempered with whole spices and fresh vegetables.', img:'Item & Dish images/dish images/128_138_Curd_Rice_A_bowl_of_c.jpg'},
+    {name:'Veg Fried Rice', cat:'rice', price:170, fav:false, spice:'Medium Spice', desc:'Fragrant rice tempered with whole spices and fresh vegetables.', img:'Item & Dish images/dish images/129_139_Veg_Fried_Rice_A_wok-.jpg'},
+    {name:'Capsicum Rice', cat:'rice', price:150, fav:false, spice:'Medium Spice', desc:'Fragrant rice tempered with whole spices and fresh vegetables.', img:'Item & Dish images/dish images/130_140_Capsicum_Rice_A_colou.jpg'},
+    {name:'Lemon Rice', cat:'rice', price:150, fav:false, spice:'Medium Spice', desc:'Fragrant rice tempered with whole spices and fresh vegetables.', img:'Item & Dish images/dish images/131_141_Lemon_Rice_A_plate_of.jpg'},
+    {name:'Schezwan Fried Rice', cat:'rice', price:170, fav:false, spice:'Medium Spice', desc:'Fragrant rice tempered with whole spices and fresh vegetables.', img:'Item & Dish images/dish images/132_142_Schezwan_Fried_Rice_A.jpg'},
+    {name:'Jeera Rice', cat:'rice', price:140, fav:false, spice:'Medium Spice', desc:'Fragrant rice tempered with whole spices and fresh vegetables.', img:'Item & Dish images/dish images/133_143_Jeera_Rice_A_plate_of.jpg'},
+    {name:'Veg Pulao', cat:'rice', price:200, fav:false, spice:'Medium Spice', desc:'Fragrant rice tempered with whole spices and fresh vegetables.', img:'Item & Dish images/dish images/134_144_Veg_Pulao_A_fragrant_.jpg'},
+    {name:'Paneer Pulao', cat:'rice', price:210, fav:false, spice:'Medium Spice', desc:'Fragrant rice tempered with whole spices and fresh vegetables.', img:'Item & Dish images/dish images/135_145_Paneer_Pulao_A_fragra.jpg'},
+    {name:'Mushroom Fried Rice', cat:'rice', price:180, fav:false, spice:'Medium Spice', desc:'Fragrant rice tempered with whole spices and fresh vegetables.', img:'Item & Dish images/dish images/136_146_Mushroom_Fried_Rice_A.jpg'},
+    {name:'Paneer Fried Rice', cat:'rice', price:180, fav:false, spice:'Medium Spice', desc:'Fragrant rice tempered with whole spices and fresh vegetables.', img:'Item & Dish images/dish images/137_147_Paneer_Fried_Rice_A_w.jpg'},
+    {name:'Kaju Fried Rice', cat:'rice', price:200, fav:false, spice:'Medium Spice', desc:'Fragrant rice tempered with whole spices and fresh vegetables.', img:'Item & Dish images/dish images/138_148_Kaju_Fried_Rice_A_wok.jpg'},
+    {name:'Kashmiri Pulao', cat:'rice', price:220, fav:false, spice:'Medium Spice', desc:'Fragrant rice tempered with whole spices and fresh vegetables.', img:'Item & Dish images/dish images/139_149_Kashmiri_Pulao_A_frag.jpg'},
+    {name:'Mixed Fried Rice', cat:'rice', price:180, fav:false, spice:'Medium Spice', desc:'Fragrant rice tempered with whole spices and fresh vegetables.', img:'Item & Dish images/dish images/140_150_Mixed_Fried_Rice_A_wo.jpg'},
+    {name:'Veg Dum Biryani', cat:'rice', price:240, fav:true, spice:'Medium Spice', desc:'Fragrant rice tempered with whole spices and fresh vegetables.', img:'Item & Dish images/dish images/141_151_Veg_Dum_Biryani_A_lay.jpg'},
+    {name:'Tomato Rice', cat:'rice', price:140, fav:false, spice:'Medium Spice', desc:'Fragrant rice tempered with whole spices and fresh vegetables.', img:'Item & Dish images/dish images/142_152_Tomato_Rice_A_plate_o.jpg'},
+    {name:'Veg Soft Noodles', cat:'noodles', price:130, fav:false, spice:'Medium Spice', desc:'Wok-tossed noodles in a bold Indo-Chinese style.', img:'Item & Dish images/dish images/143_153_Veg_Soft_Noodles_A_wo.jpg'},
+    {name:'Veg Fried Noodles', cat:'noodles', price:130, fav:false, spice:'Medium Spice', desc:'Wok-tossed noodles in a bold Indo-Chinese style.', img:'Item & Dish images/dish images/144_154_Veg_Fried_Noodles_A_w.jpg'},
+    {name:'Singapore Noodles', cat:'noodles', price:140, fav:false, spice:'Medium Spice', desc:'Wok-tossed noodles in a bold Indo-Chinese style.', img:'Item & Dish images/dish images/145_155_Singapore_Noodles_A_w.jpg'},
+    {name:'American Chopsuey', cat:'noodles', price:140, fav:false, spice:'Medium Spice', desc:'Wok-tossed noodles in a bold Indo-Chinese style.', img:'Item & Dish images/dish images/146_156_American_Chopsuey_A_w.jpg'},
+    {name:'Chinese Chopsuey', cat:'noodles', price:140, fav:false, spice:'Medium Spice', desc:'Wok-tossed noodles in a bold Indo-Chinese style.', img:'Item & Dish images/dish images/147_157_Chinese_Chopsuey_A_wo.jpg'},
+    {name:'Mushroom Noodles', cat:'noodles', price:140, fav:false, spice:'Medium Spice', desc:'Wok-tossed noodles in a bold Indo-Chinese style.', img:'Item & Dish images/dish images/148_158_Mushroom_Noodles_A_wo.jpg'},
+    {name:'Hot Garlic Noodles', cat:'noodles', price:140, fav:false, spice:'Medium Spice', desc:'Wok-tossed noodles in a bold Indo-Chinese style.', img:'Item & Dish images/dish images/149_159_Hot_Garlic_Noodles_A_.jpg'},
+    {name:'Schezwan Noodles', cat:'noodles', price:140, fav:false, spice:'Medium Spice', desc:'Wok-tossed noodles in a bold Indo-Chinese style.', img:'Item & Dish images/dish images/150_160_Schezwan_Noodles_A_wo.jpg'},
+    {name:'Veg Hakka Noodles', cat:'noodles', price:140, fav:false, spice:'Medium Spice', desc:'Wok-tossed noodles in a bold Indo-Chinese style.', img:'Item & Dish images/dish images/151_161_Veg_Hakka_Noodles_A_w.jpg'},
+    {name:'North Indian Thali', cat:'meals', price:280, fav:true, spice:'Medium Spice', desc:'A complete thali spread with rice, breads, curries and sweet.', img:'Item & Dish images/dish images/152_162_North_Indian_Thali_An.jpg'},
+    {name:'South Indian Thali', cat:'meals', price:230, fav:false, spice:'Medium Spice', desc:'A complete thali spread with rice, breads, curries and sweet.', img:'Item & Dish images/dish images/153_163_South_Indian_Thali_A_.jpg'},
+    {name:'Tea', cat:'beverages', price:25, fav:false, spice:'Medium Spice', desc:'A refreshing pick from our beverages and desserts counter.', img:'Item & Dish images/dish images/154_164_Tea_A_steel_tumbler_o.jpg'},
+    {name:'Coffee', cat:'beverages', price:35, fav:false, spice:'Medium Spice', desc:'A refreshing pick from our beverages and desserts counter.', img:'Item & Dish images/dish images/155_165_Coffee_A_steel_tumble.jpg'},
+    {name:'Boost', cat:'beverages', price:40, fav:false, spice:'Medium Spice', desc:'A refreshing pick from our beverages and desserts counter.', img:'Item & Dish images/dish images/156_166_Boost_A_tall_glass_of.jpg'},
+    {name:'Bournvita', cat:'beverages', price:40, fav:false, spice:'Medium Spice', desc:'A refreshing pick from our beverages and desserts counter.', img:'Item & Dish images/dish images/157_167_Bournvita_A_tall_glas.jpg'},
+    {name:'Cool Coffee (Any Flavour)', cat:'beverages', price:60, fav:false, spice:'Medium Spice', desc:'A refreshing pick from our beverages and desserts counter.', img:'Item & Dish images/dish images/158_168_Cool_Coffee_Any_Flavo.jpg'},
+    {name:'Gulab Jamun', cat:'beverages', price:60, fav:true, spice:'Medium Spice', desc:'A refreshing pick from our beverages and desserts counter.', img:'Item & Dish images/dish images/159_169_Gulab_Jamun_Two_gloss.jpg'},
+    {name:'Carrot Halwa', cat:'beverages', price:60, fav:false, spice:'Medium Spice', desc:'A refreshing pick from our beverages and desserts counter.', img:'Item & Dish images/dish images/160_170_Carrot_Halwa_A_bowl_o.jpg'},
+    {name:'Double Ka Meeta', cat:'beverages', price:60, fav:false, spice:'Medium Spice', desc:'A refreshing pick from our beverages and desserts counter.', img:'Item & Dish images/dish images/161_171_Double_Ka_Meeta_A_bow.jpg'},
+    {name:'Basundi', cat:'beverages', price:80, fav:false, spice:'Medium Spice', desc:'A refreshing pick from our beverages and desserts counter.', img:'Item & Dish images/dish images/162_172_Basundi_A_refreshing_.jpg'},
+    {name:'Fruit Salad', cat:'beverages', price:100, fav:false, spice:'Medium Spice', desc:'A refreshing pick from our beverages and desserts counter.', img:'Item & Dish images/dish images/163_173_Fruit_Salad_A_bowl_of.jpg'},
+    {name:'Mosambi Juice', cat:'beverages', price:70, fav:false, spice:'Medium Spice', desc:'A refreshing pick from our beverages and desserts counter.', img:'Item & Dish images/dish images/164_174_Mosambi_Juice_A_tall_.jpg'},
+    {name:'Pineapple Juice', cat:'beverages', price:70, fav:false, spice:'Medium Spice', desc:'A refreshing pick from our beverages and desserts counter.', img:'Item & Dish images/dish images/165_175_Pineapple_Juice_A_tal.jpg'},
+    {name:'Sapota Juice', cat:'beverages', price:70, fav:false, spice:'Medium Spice', desc:'A refreshing pick from our beverages and desserts counter.', img:'Item & Dish images/dish images/166_176_Sapota_Juice_A_tall_g.jpg'},
+    {name:'Grapes Juice', cat:'beverages', price:70, fav:false, spice:'Medium Spice', desc:'A refreshing pick from our beverages and desserts counter.', img:'Item & Dish images/dish images/167_177_Grapes_Juice_A_tall_g.jpg'},
+    {name:'Orange Juice', cat:'beverages', price:70, fav:false, spice:'Medium Spice', desc:'A refreshing pick from our beverages and desserts counter.', img:'Item & Dish images/dish images/168_178_Orange_Juice_A_tall_g.jpg'},
+    {name:'Banana Juice', cat:'beverages', price:70, fav:false, spice:'Medium Spice', desc:'A refreshing pick from our beverages and desserts counter.', img:'Item & Dish images/dish images/169_179_Banana_Juice_A_tall_g.jpg'},
+    {name:'Papaya Juice', cat:'beverages', price:70, fav:false, spice:'Medium Spice', desc:'A refreshing pick from our beverages and desserts counter.', img:'Item & Dish images/dish images/170_180_Papaya_Juice_A_tall_g.jpg'},
+    {name:'Watermelon Juice', cat:'beverages', price:70, fav:false, spice:'Medium Spice', desc:'A refreshing pick from our beverages and desserts counter.', img:'Item & Dish images/dish images/171_181_Watermelon_Juice_A_ta.jpg'},
+    {name:'Mango Juice', cat:'beverages', price:70, fav:false, spice:'Medium Spice', desc:'A refreshing pick from our beverages and desserts counter.', img:'Item & Dish images/dish images/172_182_Mango_Juice_A_tall_gl.jpg'},
+    {name:'Apple Juice', cat:'beverages', price:70, fav:false, spice:'Medium Spice', desc:'A refreshing pick from our beverages and desserts counter.', img:'Item & Dish images/dish images/173_183_Apple_Juice_A_tall_gl.jpg'},
+    {name:'Anar Juice', cat:'beverages', price:70, fav:false, spice:'Medium Spice', desc:'A refreshing pick from our beverages and desserts counter.', img:'Item & Dish images/dish images/174_184_Anar_Juice_A_tall_gla.jpg'},
+    {name:'Cocktail Juice', cat:'beverages', price:70, fav:false, spice:'Medium Spice', desc:'A refreshing pick from our beverages and desserts counter.', img:'Item & Dish images/dish images/175_185_Cocktail_Juice_A_tall.jpg'},
+    {name:'Lassi', cat:'beverages', price:70, fav:false, spice:'Medium Spice', desc:'A refreshing pick from our beverages and desserts counter.', img:'Item & Dish images/dish images/176_186_Lassi_A_tall_glass_of.jpg'},
+    {name:'Dry Fruit Lassi', cat:'beverages', price:70, fav:false, spice:'Medium Spice', desc:'A refreshing pick from our beverages and desserts counter.', img:'Item & Dish images/dish images/177_187_Dry_Fruit_Lassi_A_tal.jpg'},
+    {name:'Mango Lassi', cat:'beverages', price:70, fav:false, spice:'Medium Spice', desc:'A refreshing pick from our beverages and desserts counter.', img:'Item & Dish images/dish images/178_188_Mango_Lassi_A_tall_gl.jpg'},
+    {name:'Pineapple Lassi', cat:'beverages', price:70, fav:false, spice:'Medium Spice', desc:'A refreshing pick from our beverages and desserts counter.', img:'Item & Dish images/dish images/179_189_Pineapple_Lassi_A_tal.jpg'},
+    {name:'Strawberry Lassi', cat:'beverages', price:70, fav:false, spice:'Medium Spice', desc:'A refreshing pick from our beverages and desserts counter.', img:'Item & Dish images/dish images/180_190_Strawberry_Lassi_A_ta.jpg'},
+    {name:'Lichi Lassi', cat:'beverages', price:70, fav:false, spice:'Medium Spice', desc:'A refreshing pick from our beverages and desserts counter.', img:'Item & Dish images/dish images/181_191_Lichi_Lassi_A_tall_gl.jpg'},
+    {name:'Chocolate Lassi', cat:'beverages', price:70, fav:false, spice:'Medium Spice', desc:'A refreshing pick from our beverages and desserts counter.', img:'Item & Dish images/dish images/182_192_Chocolate_Lassi_A_tal.jpg'},
+    {name:'Almond Lassi', cat:'beverages', price:70, fav:false, spice:'Medium Spice', desc:'A refreshing pick from our beverages and desserts counter.', img:'Item & Dish images/dish images/183_193_Almond_Lassi_A_tall_g.jpg'},
+    {name:'Pista Lassi', cat:'beverages', price:70, fav:false, spice:'Medium Spice', desc:'A refreshing pick from our beverages and desserts counter.', img:'Item & Dish images/dish images/184_194_Pista_Lassi_A_tall_gl.jpg'},
+    {name:'Butter Scotch Lassi', cat:'beverages', price:70, fav:false, spice:'Medium Spice', desc:'A refreshing pick from our beverages and desserts counter.', img:'Item & Dish images/dish images/Butter_Scotch_Lassi_2K_202607090932.jpeg'},
+    {name:'Black Currant Lassi', cat:'beverages', price:70, fav:false, spice:'Medium Spice', desc:'A refreshing pick from our beverages and desserts counter.', img:'Item & Dish images/dish images/186_196_Black_Currant_Lassi_A.jpg'},
+    {name:'Kiwi Lassi', cat:'beverages', price:70, fav:false, spice:'Medium Spice', desc:'A refreshing pick from our beverages and desserts counter.', img:'Item & Dish images/dish images/187_197_Kiwi_Lassi_A_tall_gla.jpg'},
+    {name:'Faluda', cat:'beverages', price:80, fav:false, spice:'Medium Spice', desc:'A refreshing pick from our beverages and desserts counter.', img:'Item & Dish images/dish images/188_198_Faluda_A_tall_glass_o.jpg'},
+    {name:'Dry Fruit Faluda', cat:'beverages', price:80, fav:false, spice:'Medium Spice', desc:'A refreshing pick from our beverages and desserts counter.', img:'Item & Dish images/dish images/189_199_Dry_Fruit_Faluda_A_ta.jpg'},
+    {name:'Mango Faluda', cat:'beverages', price:80, fav:false, spice:'Medium Spice', desc:'A refreshing pick from our beverages and desserts counter.', img:'Item & Dish images/dish images/190_200_Mango_Faluda_A_tall_g.jpg'},
+    {name:'Pineapple Faluda', cat:'beverages', price:80, fav:false, spice:'Medium Spice', desc:'A refreshing pick from our beverages and desserts counter.', img:'Item & Dish images/dish images/191_201_Pineapple_Faluda_A_ta.jpg'},
+    {name:'Strawberry Faluda', cat:'beverages', price:80, fav:false, spice:'Medium Spice', desc:'A refreshing pick from our beverages and desserts counter.', img:'Item & Dish images/dish images/192_202_Strawberry_Faluda_A_t.jpg'},
+    {name:'Lichi Faluda', cat:'beverages', price:80, fav:false, spice:'Medium Spice', desc:'A refreshing pick from our beverages and desserts counter.', img:'Item & Dish images/dish images/193_203_Lichi_Faluda_A_tall_g.jpg'},
+    {name:'Chocolate Faluda', cat:'beverages', price:80, fav:false, spice:'Medium Spice', desc:'A refreshing pick from our beverages and desserts counter.', img:'Item & Dish images/dish images/194_204_Chocolate_Faluda_A_ta.jpg'},
+    {name:'Almond Faluda', cat:'beverages', price:80, fav:false, spice:'Medium Spice', desc:'A refreshing pick from our beverages and desserts counter.', img:'Item & Dish images/dish images/195_205_Almond_Faluda_A_tall_.jpg'},
+    {name:'Pista Faluda', cat:'beverages', price:80, fav:false, spice:'Medium Spice', desc:'A refreshing pick from our beverages and desserts counter.', img:'Item & Dish images/dish images/196_206_Pista_Faluda_A_tall_g.jpg'},
+    {name:'Butter Scotch Faluda', cat:'beverages', price:80, fav:false, spice:'Medium Spice', desc:'A refreshing pick from our beverages and desserts counter.', img:'Item & Dish images/dish images/197_207_Butter_Scotch_Faluda_.jpg'},
+    {name:'Black Currant Faluda', cat:'beverages', price:80, fav:false, spice:'Medium Spice', desc:'A refreshing pick from our beverages and desserts counter.', img:'Item & Dish images/dish images/198_208_Black_Currant_Faluda_.jpg'},
+    {name:'Kiwi Faluda', cat:'beverages', price:80, fav:false, spice:'Medium Spice', desc:'A refreshing pick from our beverages and desserts counter.', img:'Item & Dish images/dish images/199_209_Kiwi_Faluda_A_tall_gl.jpg'},
+    {name:'Badam Milk Shake', cat:'beverages', price:60, fav:false, spice:'Medium Spice', desc:'A refreshing pick from our beverages and desserts counter.', img:'Item & Dish images/dish images/200_210_Badam_Milk_Shake_A_ta.jpg'},
+    {name:'Kaju Milk Shake', cat:'beverages', price:80, fav:false, spice:'Medium Spice', desc:'A refreshing pick from our beverages and desserts counter.', img:'Item & Dish images/dish images/201_211_Kaju_Milk_Shake_A_tal.jpg'},
+    {name:'Rose Milk Shake', cat:'beverages', price:70, fav:false, spice:'Medium Spice', desc:'A refreshing pick from our beverages and desserts counter.', img:'Item & Dish images/dish images/202_212_Rose_Milk_Shake_A_tal.jpg'},
+    {name:'Vanilla Milk Shake', cat:'beverages', price:70, fav:false, spice:'Medium Spice', desc:'A refreshing pick from our beverages and desserts counter.', img:'Item & Dish images/dish images/203_213_Vanilla_Milk_Shake_A_.jpg'},
+    {name:'Strawberry Milk Shake', cat:'beverages', price:70, fav:false, spice:'Medium Spice', desc:'A refreshing pick from our beverages and desserts counter.', img:'Item & Dish images/dish images/204_214_Strawberry_Milk_Shake.jpg'},
+    {name:'Butter Scotch Milk Shake', cat:'beverages', price:80, fav:false, spice:'Medium Spice', desc:'A refreshing pick from our beverages and desserts counter.', img:'Item & Dish images/dish images/205_215_Butter_Scotch_Milk_Sh.jpg'},
+    {name:'Chocolate Milk Shake', cat:'beverages', price:80, fav:false, spice:'Medium Spice', desc:'A refreshing pick from our beverages and desserts counter.', img:'Item & Dish images/dish images/206_216_Chocolate_Milk_Shake_.jpg'},
+    {name:'Mango Milk Shake', cat:'beverages', price:80, fav:false, spice:'Medium Spice', desc:'A refreshing pick from our beverages and desserts counter.', img:'Item & Dish images/dish images/207_217_Mango_Milk_Shake_A_ta.jpg'},
+    {name:'Litchi Milk Shake', cat:'beverages', price:80, fav:false, spice:'Medium Spice', desc:'A refreshing pick from our beverages and desserts counter.', img:'Item & Dish images/dish images/208_218_Litchi_Milk_Shake_A_t.jpg'},
+    {name:'Kiwi Milk Shake', cat:'beverages', price:80, fav:false, spice:'Medium Spice', desc:'A refreshing pick from our beverages and desserts counter.', img:'Item & Dish images/dish images/209_219_Kiwi_Milk_Shake_A_tal.jpg'},
+    {name:'Banana Milk Shake', cat:'beverages', price:80, fav:false, spice:'Medium Spice', desc:'A refreshing pick from our beverages and desserts counter.', img:'Item & Dish images/dish images/210_220_Banana_Milk_Shake_A_t.jpg'},
+    {name:'Sapota Milk Shake', cat:'beverages', price:80, fav:false, spice:'Medium Spice', desc:'A refreshing pick from our beverages and desserts counter.', img:'Item & Dish images/dish images/211_221_Sapota_Milk_Shake_A_t.jpg'},
+    {name:'Pineapple Milk Shake', cat:'beverages', price:80, fav:false, spice:'Medium Spice', desc:'A refreshing pick from our beverages and desserts counter.', img:'Item & Dish images/dish images/212_222_Pineapple_Milk_Shake_.jpg'},
+    {name:'Orange Milk Shake', cat:'beverages', price:80, fav:false, spice:'Medium Spice', desc:'A refreshing pick from our beverages and desserts counter.', img:'Item & Dish images/dish images/213_223_Orange_Milk_Shake_A_t.jpg'},
+    {name:'Almond Milk Shake', cat:'beverages', price:80, fav:false, spice:'Medium Spice', desc:'A refreshing pick from our beverages and desserts counter.', img:'Item & Dish images/dish images/214_224_Almond_Milk_Shake_A_t.jpg'},
+    {name:'Black Currant Milk Shake', cat:'beverages', price:80, fav:false, spice:'Medium Spice', desc:'A refreshing pick from our beverages and desserts counter.', img:'Item & Dish images/dish images/215_225_Black_Currant_Milk_Sh.jpg'},
+    {name:'Blue Berry Milk Shake', cat:'beverages', price:80, fav:false, spice:'Medium Spice', desc:'A refreshing pick from our beverages and desserts counter.', img:'Item & Dish images/dish images/216_226_Blue_Berry_Milk_Shake.jpg'},
+    {name:'Green Apple Milk Shake', cat:'beverages', price:80, fav:false, spice:'Medium Spice', desc:'A refreshing pick from our beverages and desserts counter.', img:'Item & Dish images/dish images/217_227_Green_Apple_Milk_Shak.jpg'},
+    {name:'Sarza', cat:'beverages', price:80, fav:false, spice:'Medium Spice', desc:'A refreshing pick from our beverages and desserts counter.', img:'Item & Dish images/dish images/218_228_Sarza_A_tall_glass_of.jpg'},
+    {name:'Special Sarza', cat:'beverages', price:80, fav:false, spice:'Medium Spice', desc:'A refreshing pick from our beverages and desserts counter.', img:'Item & Dish images/dish images/219_229_Special_Sarza_A_tall_.jpg'},
+    {name:'Oreo Sarza', cat:'beverages', price:80, fav:false, spice:'Medium Spice', desc:'A refreshing pick from our beverages and desserts counter.', img:'Item & Dish images/dish images/220_230_Oreo_Sarza_A_tall_gla.jpg'},
+    {name:'Dry Fruit Salad', cat:'beverages', price:80, fav:false, spice:'Medium Spice', desc:'A refreshing pick from our beverages and desserts counter.', img:'Item & Dish images/dish images/221_231_Dry_Fruit_Salad_A_bow.jpg'},
+    {name:'Oreo Milk Shake', cat:'beverages', price:80, fav:false, spice:'Medium Spice', desc:'A refreshing pick from our beverages and desserts counter.', img:'Item & Dish images/dish images/222_232_Oreo_Milk_Shake_A_tal.jpg'},
+    {name:'Dry Fruit Juice', cat:'beverages', price:150, fav:false, spice:'Medium Spice', desc:'A refreshing pick from our beverages and desserts counter.', img:'Item & Dish images/dish images/223_233_Dry_Fruit_Juice_A_gla.jpg'},
+  ];
+
+  // Restore any saved menu edits (photos, names, prices, added/removed items)
+  // so they survive a page reload instead of only living in memory.
+  try {
+    const saved = localStorage.getItem(MENU_STORAGE_KEY);
+    if(saved){
+      const parsed = JSON.parse(saved);
+      if(Array.isArray(parsed) && parsed.length) {
+        dishes = parsed;
+      }
+    }
+  } catch(e){ /* localStorage unavailable — falls back to defaults above */ }
+
+  function persistMenu(){
+    try { localStorage.setItem(MENU_STORAGE_KEY, JSON.stringify(dishes)); }
+    catch(e){ /* storage full or blocked — edits still work for this session */ }
+  }
+
+  const dishIcon = `<svg viewBox="0 0 24 24" fill="none" stroke="#1C1A17" stroke-width="1.2"><rect x="3" y="4" width="18" height="16" rx="1"/><circle cx="8.5" cy="10" r="1.6"/><path d="M21 16l-5.5-5.5L9 17"/></svg>`;
+  const catLabels = {tiffins:"Tiffins &amp; Dosas", starters:"Starters", mains:"Main Course", raithas:"Raithas", soups:"Soups", breads:"Breads", rice:"Rice &amp; Biryani", noodles:"Noodles", meals:"Meals &amp; Thalis", beverages:"Beverages &amp; Desserts"};
+
+  const menuGrid = document.getElementById('menuGrid');
+
+  function renderMenu(filter){
+    menuGrid.innerHTML = "";
+    dishes.filter(d => filter === "all" || d.cat === filter).forEach((d, i) => {
+      const card = document.createElement('div');
+      card.className = 'dish-card';
+      card.innerHTML = `
+        <div class="dish-photo" data-idx="${dishes.indexOf(d)}">
+          ${d.img ? `<img src="${d.img}" alt="${d.name}" style="width:100%;height:100%;object-fit:cover;">` : dishIcon}
+          ${d.fav ? '<span class="ribbon">Favourite</span>' : ''}
+          <span class="veg-dot"><i></i></span>
+        </div>
+        <div class="dish-body">
+          <div class="dish-name">${d.name}</div>
+          <div class="dish-desc">${d.desc}</div>
+          <div class="dish-footer">
+            <span class="dish-price">₹${d.price}</span>
+            <span class="dish-tag">${catLabels[d.cat]}</span>
+          </div>
+        </div>`;
+      menuGrid.appendChild(card);
+    });
+  }
+  renderMenu('all');
+
+  document.getElementById('menuTabs').addEventListener('click', e => {
+    if(!e.target.classList.contains('menu-tab')) return;
+    document.querySelectorAll('.menu-tab').forEach(t => t.classList.remove('active'));
+    e.target.classList.add('active');
+    renderMenu(e.target.dataset.cat);
+  });
+
+  // ============ LIGHTBOX ============
+  const lightbox = document.getElementById('lightbox');
+  const lbImg = document.getElementById('lbImg');
+  const lbSvg = document.getElementById('lbSvg');
+  const lbZoomTools = document.querySelector('.lb-zoom-tools');
+  let activeScale = 1.0;
+
+  function applyZoom() {
+    if (lbImg) {
+      lbImg.style.transform = `scale(${activeScale})`;
+    }
+  }
+
+  function resetZoom() {
+    activeScale = 1.0;
+    applyZoom();
+  }
+
+  menuGrid.addEventListener('click', e => {
+    const photo = e.target.closest('.dish-photo');
+    if(!photo) return;
+    const d = dishes[photo.dataset.idx];
+    
+    resetZoom();
+
+    if (d.img) {
+      lbImg.src = d.img;
+      lbImg.alt = d.name;
+      lbImg.style.display = 'block';
+      lbSvg.style.display = 'none';
+    } else {
+      lbImg.style.display = 'none';
+      lbSvg.style.display = 'block';
+    }
+
+    document.getElementById('lbName').textContent = d.name;
+    document.getElementById('lbDesc').textContent = d.desc;
+    document.getElementById('lbPrice').textContent = "₹" + d.price;
+    document.getElementById('lbCat').textContent = catLabels[d.cat];
+    document.getElementById('lbSpice').textContent = d.spice;
+    lightbox.classList.add('open');
+  });
+
+  const closeLightbox = () => {
+    lightbox.classList.remove('open');
+    resetZoom();
+  };
+
+  document.getElementById('lbClose').addEventListener('click', closeLightbox);
+  lightbox.addEventListener('click', e => { if(e.target === lightbox) closeLightbox(); });
+
+  // Lightbox Zoom Logic via Event Delegation
+  lbZoomTools.addEventListener('click', e => {
+    const btn = e.target.closest('button');
+    if (!btn) return;
+    e.preventDefault();
+    const action = btn.textContent.trim();
+    if (action === '+') {
+      activeScale = Math.min(2.0, activeScale + 0.2);
+    } else if (action === '–' || action === '-') {
+      activeScale = Math.max(1.0, activeScale - 0.2);
+    } else if (action === '⤢') {
+      activeScale = 1.0;
+    }
+    applyZoom();
+  });
+
+  // Add to Order button stage action
+  document.querySelector('.lb-add-btn').addEventListener('click', () => {
+    const name = document.getElementById('lbName').textContent;
+    alert(`${name} has been successfully added to your order slip!`);
+  });
+
+
+
+  // ============ ADMIN SYSTEM ============
+  const adminOverlay = document.getElementById('adminOverlay');
+  const adminLogin = document.getElementById('adminLogin');
+  const adminDash = document.getElementById('adminDash');
+  const STAFF_PASSWORD = "PDHNH44";
+
+  document.getElementById('staffPortalBtn').addEventListener('click', () => {
+    adminOverlay.classList.add('open');
+    adminLogin.style.display = 'flex';
+    adminDash.classList.remove('open');
+  });
+  document.getElementById('adminExit').addEventListener('click', () => adminOverlay.classList.remove('open'));
+
+  document.getElementById('staffLoginBtn').addEventListener('click', () => {
+    const pass = document.getElementById('staffPass').value;
+    const err = document.getElementById('loginError');
+    if(pass === STAFF_PASSWORD){
+      err.textContent = "";
+      adminLogin.style.display = 'none';
+      adminDash.classList.add('open');
+      renderAdminAccordion();
+    } else {
+      err.textContent = "Incorrect password. Please contact the restaurant manager.";
+    }
+  });
+
+  document.getElementById('logoutBtn').addEventListener('click', () => {
+    adminOverlay.classList.remove('open');
+    document.getElementById('staffPass').value = "";
+  });
+
+  function renderAdminAccordion(){
+    const acc = document.getElementById('adminAccordion');
+    acc.innerHTML = "";
+    document.getElementById('itemCountTag').textContent = dishes.length + " items";
+
+    Object.keys(catLabels).forEach(catKey => {
+      const items = dishes.filter(d => d.cat === catKey);
+      if(items.length === 0) return;
+
+      const section = document.createElement('div');
+      section.className = 'cat-section';
+      section.innerHTML = `
+        <div class="cat-header" data-cat="${catKey}">
+          <div class="cat-header-left">
+            <span class="cat-arrow">▶</span>
+            <h4>${catLabels[catKey]} (${items.length})</h4>
+          </div>
+          <button class="cat-save-btn" data-cat="${catKey}" type="button">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"/><path d="M17 21v-8H7v8M7 3v5h8"/></svg>
+            Save Changes
+          </button>
+        </div>
+        <div class="cat-body" id="catbody-${catKey}">
+          ${items.map(d => {
+            const idx = dishes.indexOf(d);
+            return `
+            <div class="item-row" data-idx="${idx}">
+              <div class="item-thumb">
+                ${d.img ? `<img src="${d.img}" alt="${d.name}">` : dishIcon}
+                <button class="item-thumb-upload" data-idx="${idx}" type="button" title="Upload dish photo">
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg>
+                </button>
+                <input type="file" accept="image/*" class="item-file-input" data-idx="${idx}" style="display:none;">
+              </div>
+              <input type="text" class="item-name-input" data-idx="${idx}" value="${d.name}">
+              <input type="number" class="item-price-input" data-idx="${idx}" value="${d.price}">
+              <button class="item-delete-btn" data-idx="${idx}" type="button" title="Remove item">✕</button>
+            </div>`;
+          }).join('')}
+        </div>
+      `;
+      acc.appendChild(section);
+    });
+  }
+
+  document.getElementById('adminAccordion').addEventListener('click', e => {
+    // Save Changes for a category
+    const saveBtn = e.target.closest('.cat-save-btn');
+    if(saveBtn){
+      const body = document.getElementById('catbody-' + saveBtn.dataset.cat);
+      body.querySelectorAll('.item-row').forEach(row => {
+        const idx = parseInt(row.dataset.idx);
+        const name = row.querySelector('.item-name-input').value.trim();
+        const price = parseInt(row.querySelector('.item-price-input').value) || 0;
+        if(dishes[idx] && name){ dishes[idx].name = name; dishes[idx].price = price; }
+      });
+      persistMenu();
+      renderMenu(document.querySelector('.menu-tab.active').dataset.cat);
+      const original = saveBtn.innerHTML;
+      saveBtn.classList.add('saved');
+      saveBtn.innerHTML = '✓ Saved';
+      setTimeout(() => { saveBtn.classList.remove('saved'); saveBtn.innerHTML = original; }, 1400);
+      return;
+    }
+    // Trigger hidden file input for photo upload
+    const uploadBtn = e.target.closest('.item-thumb-upload');
+    if(uploadBtn){
+      document.querySelector(`.item-file-input[data-idx="${uploadBtn.dataset.idx}"]`).click();
+      return;
+    }
+    // Delete item
+    const delBtn = e.target.closest('.item-delete-btn');
+    if(delBtn){
+      const idx = parseInt(delBtn.dataset.idx);
+      if(dishes[idx] && confirm(`Remove "${dishes[idx].name}" from the menu?`)){
+        dishes.splice(idx, 1);
+        persistMenu();
+        renderAdminAccordion();
+        renderMenu(document.querySelector('.menu-tab.active').dataset.cat);
+      }
+      return;
+    }
+    // Expand/collapse category section
+    const header = e.target.closest('.cat-header');
+    if(header){
+      const body = document.getElementById('catbody-' + header.dataset.cat);
+      const arrow = header.querySelector('.cat-arrow');
+      const open = body.classList.toggle('open');
+      arrow.textContent = open ? '▼' : '▶';
+    }
+  });
+
+  document.getElementById('adminAccordion').addEventListener('change', e => {
+    if(!e.target.classList.contains('item-file-input')) return;
+    const idx = parseInt(e.target.dataset.idx);
+    const file = e.target.files[0];
+    if(!file || !dishes[idx]) return;
+    const reader = new FileReader();
+    reader.onload = ev => {
+      dishes[idx].img = ev.target.result;
+      const thumb = e.target.closest('.item-thumb');
+      const old = thumb.querySelector('img, svg');
+      if(old) old.remove();
+      const img = document.createElement('img');
+      img.src = ev.target.result;
+      img.alt = dishes[idx].name;
+      thumb.insertBefore(img, thumb.firstChild);
+      persistMenu();
+      renderMenu(document.querySelector('.menu-tab.active').dataset.cat);
+    };
+    reader.readAsDataURL(file);
+  });
+
+  // Add Item upload photography logic
+  let newImgBase64 = "";
+  const uploadBlock = document.querySelector('.add-item-block .upload-block');
+  const newImgFileInput = document.getElementById('newImgFile');
+
+  uploadBlock.addEventListener('click', () => {
+    newImgFileInput.click();
+  });
+
+  newImgFileInput.addEventListener('change', e => {
+    const file = e.target.files[0];
+    if (!file) return;
+    const reader = new FileReader();
+    reader.onload = ev => {
+      newImgBase64 = ev.target.result;
+      uploadBlock.innerHTML = `<img src="${newImgBase64}" style="max-height:80px; max-width:100%; object-fit:contain; margin:0 auto; display:block;">`;
+    };
+    reader.readAsDataURL(file);
+  });
+
+  document.getElementById('addItemBtn').addEventListener('click', () => {
+    const name = document.getElementById('newName').value.trim();
+    const cat = document.getElementById('newCat').value;
+    const price = parseInt(document.getElementById('newPrice').value) || 0;
+    const desc = document.getElementById('newDesc').value.trim() || "A new addition to the Priyadarshini menu.";
+    if(!name || !price){
+      alert("Please enter an item name and base price before adding.");
+      return;
+    }
+    dishes.push({name, cat, price, fav:false, spice:"Medium Spice", desc, img: newImgBase64});
+    persistMenu();
+    renderAdminAccordion();
+    renderMenu(document.querySelector('.menu-tab.active').dataset.cat);
+    document.getElementById('newName').value = "";
+    document.getElementById('newPrice').value = "";
+    document.getElementById('newDesc').value = "";
+    // Reset upload preview block
+    uploadBlock.innerHTML = `
+      <svg viewBox="0 0 24 24" fill="none" stroke="#1C1A17" stroke-width="1.4"><path d="M12 16V4M7 9l5-5 5 5"/><path d="M4 16v3a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-3"/></svg>
+      <p>Drag image here, or <b>browse files</b> · JPG/PNG up to 5MB</p>
+    `;
+    newImgBase64 = "";
+    newImgFileInput.value = "";
+  });
+</script>
+
+</body>
+</html>
